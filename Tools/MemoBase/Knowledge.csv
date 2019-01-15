@@ -1,0 +1,11 @@
+Area,type,content
+Python,rule,"对于inmutable object 我们在函数参数传递是值传递
+对于mutable object，我们在函数参数传递是指针传递"
+Python,Error Type,OSError
+Python,Error Type,ValueError
+Python,Error Type,KeyError
+Python,Error Type,AssertionError
+Python,NumPy,ndarray*.nbytes / ndarray*.itemsize == ndarray*.size
+Python,NumPy,ndarray*.flags['OWNDATA'] 可以指示对象是否为View Object
+Linux,如何访问服务器上的共享文件夹？,在文件管理器地址栏中输入：smb://ip地址/ 
+Linux,libreoffice命令行将rtf转为txt,libreoffice5.2 --headless --invisible --convert-to txt  TMP.rtf

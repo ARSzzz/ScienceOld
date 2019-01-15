@@ -1,0 +1,3 @@
+Takes the power of each element in input with exponent and returns a tensor with the result.
+exponent can be either a single float number or a Tensor with the same number of elements as input.
+When exponent is a tensor, the shapes of input and exponent must be broadcastable.

@@ -1,0 +1,59 @@
+KEYWORD,Usage,Meaning
+(+),,(+)所在的一方全部返回。
+ALTER,,增加、修改、删除表格。
+ASC,ORDER BY colname ASC,升序排列
+CASE WHEN END,,对源数据进行处理，针对不同条件，返回不同值。
+CHECK,,为某个列增加约束条件
+CONNECT BY,,树形查询的一个子句。
+CONNECT BY,,指定父子行的条件关系。
+CONSTRAINTS,,增加约束条件
+CREATE,,创建表格
+DEFAULT,,设置数据的默认值
+DESC,ORDER BY colname DESC,降序排列
+ESCAPE,SELECT * FROM V WHERE NAME LIKE '\_BCE%' ESCAPE '\',"EXCAPE关键字经常用于使某些特殊字符，如通配符 '%', '_' 转义为它们原来的字符的意义。
+被定义的转义字符通常使用'\',但是也可以使用其他的符号。"
+EXISTS,,"指定一个子查询，检测 “行” 是否存在。
+该子查询实际上并不返回任何数据，而是返回值True或False。"
+FIRST,,
+FROM,,从……表格
+FULL JOIN,,全连接
+GROUP BY,,分组查询
+IN,,存在于
+INNER JOIN,,内连接
+INSERT,"INSERT INTO table VALUES (data1, data2, ...)",在表格中插入新数据。
+INSERT ALL,"INSERT ALL INTO … …
+INSERT ALL WHEN … INTO …",将数据插入符合条件的所有表格。
+INSERT FIRST,INSERT FIRST WHEN INTO … WHEN INTO …,只插入符合条件的首个表格
+LEFT JOIN,,左连接
+NOT EXISTS,,不存在
+NOT IN,,不存在于
+NULLS FIRST,ORDER BY colname NULLS FIRST,空值排在最前
+NULLS LAST,ORDER BY colname NULLS LAST,空值排在最后
+ORDER,"ORDER BY colname
+ORDER BY 1",排序，可加列名和数字。
+OVER(),,分区函数的内部处理。
+PARTITION BY,SELECT … OVER(PARTITION BY …) FROM …,分区，即统计的范围条件。
+PURGE,DROP TABLE table1 PURGE,不经过回收站，直接删除表格。
+RIGHT JOIN,,右连接
+ROLLBACK,,回滚
+ROWID,,伪列，每条数据在物理结构上的id。
+ROWNUM,,伪列，根据sql查询出的结果给每行分配一个逻辑编号
+SELECT,,选择
+SYSDATE,,系统当前的时间
+UNION,"SELECT product_id FROM order_items
+UNION
+SELECT product_id FROM inventories;","The UNION operator returns only distinct rows that appear in either result, while the UNION ALL operator returns all rows. The UNION ALL operator does not eliminate duplicate selected rows.
+
+A location_id value that appears multiple times in either or both queries (such as '1700') is returned only once by the UNION operator, but multiple times by the UNION ALL operator."
+UNION ALL,"SELECT location_id  FROM locations 
+UNION ALL 
+SELECT location_id  FROM departments;","The UNION operator returns only distinct rows that appear in either result, while the UNION ALL operator returns all rows. The UNION ALL operator does not eliminate duplicate selected rows.
+
+A location_id value that appears multiple times in either or both queries (such as '1700') is returned only once by the UNION operator, but multiple times by the UNION ALL operator."
+VALUES,"INSERT INTO table VALUES (data1, data2, ...)",表示数据。
+VIEW,"CREATE VIEW name AS
+CREATE OR REPLACE VIEW name AS",视图
+WHERE,,条件
+WITH CHECK OPTION,,用于创建带有约束条件的视图
+WITHIN GROUP,WITHIN GROUP (ORDER BY …),指定在group内的一些操作。
+DROP,DROP TABLE TABLENAME,删除表

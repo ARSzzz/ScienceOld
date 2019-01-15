@@ -1,0 +1,2091 @@
+Module,Function,Settings,Explanation
+argparse,add_argument(name or flags),"[action][nargs][const]
+[default][type]
+[choices][required]
+[help][metavar][dest]","Define how a single command-line argument should be parsed. Each parameter has its own more detailed description below, but in short they are:
+**name or flags**
+Either a name or a list of option strings, e.g. foo or -f, --foo.
+**action**
+The basic type of action to be taken when this argument is encountered at the command line.
+**nargs**
+The number of command-line arguments that should be consumed.
+**const**
+A constant value required by some action and nargs selections.
+**default**
+The value produced if the argument is absent from the command line.
+**type**
+The type to which the command-line argument should be converted.
+**choices**
+A container of the allowable values for the argument.
+**required**
+Whether or not the command-line option may be omitted (optionals only).
+**help**
+A brief description of what the argument does.
+**metavar**
+A name for the argument in usage messages.
+**dest**
+The name of the attribute to be added to the object returned by parse_args()."
+argparse,ArgumentParser(),description=None,Create a new ArgumentParser object. All parameters should be passed as keyword arguments.
+argparse,parse_args(),"args=None, namespace=None",Convert argument strings to objects and assign them as attributes of the namespace. Return the populated namespace.
+builtin,bool(),,"bool(x) -> bool
+Returns True when the argument x is true, False otherwise. The builtins True and False are the only two instances of the class bool. The class bool is a subclass of the class int, and cannot be subclassed."
+builtin,callable(),,"Return True if the object argument appears callable, False if not. If this returns true, it is still possible that a call fails, but if it is false, calling object will never succeed. Note that classes are callable (calling a class returns a new instance); instances are callable if their class has a __call__() method."
+builtin,dict(),,"Return a new dictionary initialized from an optional positional argument and a possibly empty set of keyword arguments.
+If no positional argument is given, an empty dictionary is created. If a positional argument is given and it is a mapping object, a dictionary is created with the same key-value pairs as the mapping object. Otherwise, the positional argument must be an iterable object. Each item in the iterable must itself be an iterable with exactly two objects. The first object of each item becomes a key in the new dictionary, and the second object the corresponding value. If a key occurs more than once, the last value for that key becomes the corresponding value in the new dictionary."
+builtin,dir([object]),,"dir([object]) -> list of strings
+If called without an argument, return the names in the current scope. Else, return an alphabetized list of names comprising (some of) the attributes of the given object, and of attributes reachable from it. If the object supplies a method named dir, it will be used; otherwise the default dir() logic is used and returns: for a module object: the module's attributes. for a class object: its attributes, and recursively the attributes of its bases. for any other object: its attributes, its class's attributes, and recursively the attributes of its class's base classes."
+builtin,enumerate(iterable),start=0,"Return an enumerate object. iterable must be a sequence, an iterator, or some other object which supports iteration.
+The \_\_next\_\_() method of the iterator returned by enumerate() returns a tuple containing a count (from start which defaults to 0) and the values obtained from iterating over iterable."
+builtin,float(x),,"float(x) -> floating point number
+Convert a string or number to a floating point number, if possible."
+builtin,"getattr(object, name)",default=None,"Get a named attribute from an object; getattr(x, 'y') is equivalent to x.y. When a default argument is given, it is returned when the attribute doesn't exist; without it, an exception is raised in that case."
+builtin,id(object),,"Return the identity of an object.
+This is guaranteed to be unique among simultaneously existing objects. (CPython uses the object's memory address.)"
+builtin,input(),"*args, **kwargs","Read a string from standard input.  The trailing newline is stripped.
+The prompt string, if given, is printed to standard output without a trailing newline before reading input."
+builtin,int(x),base=10,"int(x=0) -> integer
+int(x, base=10) -> integer
+Convert a number or string to an integer, or return 0 if no arguments are given.  If x is a number, return x.\_\_int\_\_().  For floating point numbers, this truncates towards zero.
+If x is not a number or if base is given, then x must be a *string*, *bytes*, or *bytearray* instance representing an integer literal in the given base.  The literal can be preceded by '+' or '-' and be surrounded by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36. Base 0 means to interpret the base from the string as an integer literal."
+builtin,"isinstance(x, A_tuple)",,"Return whether an object is an instance of a class or of a subclass thereof.
+A tuple, as in **isinstance(x, (A, B, ...))**, may be given as the target to check against. This is equivalent to **isinstance(x, A) or isinstance(x, B) or ...** etc."
+builtin,len(s),,"Return the length (the number of items) of an object. The argument may be a sequence (such as a string, bytes, tuple, list, or range) or a collection (such as a dictionary, set, or frozen set)."
+builtin,list(),,"list() -> new empty list
+list(iterable) -> new list initialized from iterable's items
+The constructor builds a list whose items are the same and in the same order as iterable's items. iterable may be either a sequence, a container that supports iteration, or an iterator object. If iterable is already a list, a copy is made and returned, similar to iterable[:].
+Many other operations also produce lists, including the sorted() built-in.
+Lists implement all of the **common** and **mutable** sequence operations."
+builtin,"map(func, *iterables)",,"Make an iterator that computes the function using arguments from each of the iterables.
+Stops when the shortest iterable is exhausted."
+builtin,max(*args),key=None,"max(iterable, *[, default=obj, key=func]) -> value
+max(arg1, arg2, *args, *[, key=func]) -> value
+With a single iterable argument, return its biggest item. The default keyword-only argument specifies an object to return if the provided iterable is empty.
+With two or more arguments, return the largest argument."
+builtin,min(*args),key=None,"min(iterable, *[, default=obj, key=func]) -> value
+min(arg1, arg2, *args, *[, key=func]) -> value
+With a single iterable argument, return its smallest item. The default keyword-only argument specifies an object to return if the provided iterable is empty.
+With two or more arguments, return the smallest argument."
+builtin,open(file),"mode='r', buffering=-1,
+encoding=None, errors=None,
+newline=None, closefd=True,
+opener=None","Open file and return a corresponding file object. If the file cannot be opened, an OSError is raised.
+# Return a _io.TextIOWrapper object.
+'r' = reading, 'w' = writing, 'a' = writing, appending to the end of the file if it exists."
+builtin,print(*objects),"sep=' ', end='\n',
+file=sys.stdout, flush=False","Print objects to the text stream file, separated by sep and followed by end. sep, end and file, if present, must be given as keyword arguments."
+builtin,range(stop),"start=0, step=1","The arguments to the range constructor must be integers (either built-in int or any object that implements the __index__ special method). If the step argument is omitted, it defaults to 1. If the start argument is omitted, it defaults to 0. If step is zero, ValueError is raised."
+builtin,sorted(iterable),"[, key][, reverse]",Return a new sorted list from the items in *iterable*.
+builtin,str(),"object='', encoding='utf-8',
+errors='strict'","Return a string version of object. If object is not provided, returns the empty string. Otherwise, the behavior of str() depends on whether *encoding* or *errors* is given, as follows."
+builtin,sum(iterable),start=0,"Return the sum of a 'start' value (default: 0) plus an iterable of numbers.
+When the iterable is empty, return the start value.
+This function is intended specifically for use with numeric values and may reject non-numeric types."
+builtin,tuple([iterable]),,"tuple() -> empty tuple
+tuple(iterable) -> tuple initialized from iterable's items.
+If the argument is a tuple, the return value is the same object."
+builtin,zip(),*iterables,"Make an iterator that aggregates elements from each of the iterables.
+Returns an iterator of tuples, where the i-th tuple contains the i-th element from each of the argument sequences or iterables. The iterator stops when the shortest input iterable is exhausted. With a single iterable argument, it returns an iterator of 1-tuples. With no arguments, it returns an empty iterator.
+The left-to-right evaluation order of the iterables is guaranteed. This makes possible an idiom for clustering a data series into n-length groups using zip(*[iter(s)]*n). This repeats the same iterator n times so that each output tuple has the result of n calls to the iterator. This has the effect of dividing the input into n-length chunks.
+zip() should only be used with unequal length inputs when you don¡¯t care about trailing, unmatched values from the longer iterables. If those values are important, use itertools.zip_longest() instead.
+zip() in conjunction with the * operator can be used to unzip a list."
+builtin._io.TextIOWrapper*,read(),[size],"Read and return at most *size* characters from the stream as a single str. If *size* is negative or None, reads until EOF.
+-- *size* is not a **Keyword**."
+builtin._io.TextIOWrapper*,readline(),size = -1,"Read until newline or **EOF** and return a single str. If the stream is already at **EOF**, an empty string is returned.
+If *size* is specified, at most *size* characters will be read.
+-- this method will move to the next line automatically.
+-- *size* is not a **Keyword**."
+builtin._io.TextIOWrapper*,readlines(),hint = -1,"Read and return a list of lines from the stream. *hint* can be specified to control the number of lines read: no more lines will be read if the total size (in bytes/characters) of all lines so far exceeds *hint*.
+-- *size* is not a **Keyword**."
+builtin._io.TextIOWrapper*,writable(),,"Return whether object was opened for writing.
+If Flase, write() will raise OSError."
+builtin._io.TextIOWrapper*,write(s),,Write the string s to the stream and return the number of characters written.
+builtin._io.TextIOWrapper*,writelines(lines),,"Write a list of lines to the stream. Line separators are not added, so it is usual for each of the lines provided to have a line separator at the end."
+builtin.collections,Counter(),[iterable-or-mapping],A Counter is a dict subclass for counting hashable objects. It is an unordered collection where elements are stored as dictionary keys and their counts are stored as dictionary values. Counts are allowed to be any integer value including zero or negative counts. The Counter class is similar to bags or multisets in other languages.
+builtin.collections,defaultdict(),"default_factory=None, **kwargs","defaultdict(default_factory[, ...]) --> dict with default factory
+The default factory is called without arguments to produce a new value when a key is not present, in __getitem__ only.
+A defaultdict compares equal to a dict with the same items.
+All remaining arguments are treated the same as if they were passed to the dict constructor, including keyword arguments."
+builtin.dict*,clear(),,Remove all items from the dictionary.
+builtin.dict*,copy(),,Return a shallow copy of the dictionary.
+builtin.dict*,get(key),default=None,"Return the value for key if key is in the dictionary, else default. If default is not given, it defaults to None, so that this method never raises a KeyError."
+builtin.dict*,items(),,"Return a new view of the dictionary's items ((key, value) pairs). See the documentation of view objects."
+builtin.dict*,keys(),,Return a new view of the dictionary¡¯s keys. See the documentation of view objects.
+builtin.dict*,pop(key),[default],"If key is in the dictionary, remove it and return its value, else return default. If default is not given and key is not in the dictionary, a KeyError is raised."
+builtin.dict*,popitem(),,"Remove and return an arbitrary (key, value) pair from the dictionary.
+popitem() is useful to destructively iterate over a dictionary, as often used in set algorithms. If the dictionary is empty, calling popitem() raises a KeyError."
+builtin.dict*,setdefault(key),[default],"If key is in the dictionary, return its value. If not, insert key with a value of default and return default. default defaults to None."
+builtin.dict*,update(),[other],"Update the dictionary with the key/value pairs from other, overwriting existing keys. Return None.
+update() accepts either another dictionary object or an iterable of key/value pairs (as tuples or other iterables of length two). If keyword arguments are specified, the dictionary is then updated with those key/value pairs: d.update(red=1, blue=2)."
+builtin.dict*,values(),,Return a new view of the dictionary¡¯s values. See the documentation of view objects.
+builtin.frozenset*,issubset(other),,Test whether every element in the set is in *other*.
+builtin.frozenset*,union(*others),,Return a new set with elements from the set and all others.
+builtin.itertools,chain(*iterables),,"Make an iterator that returns elements from the first iterable until it is exhausted, then proceeds to the next iterable, until all of the iterables are exhausted. Used for treating consecutive sequences as a single sequence. "
+builtin.itertools,"combinations(iterable, r)",,"Return r length subsequences of elements from the input iterable.
+Combinations are emitted in lexicographic sort order. So, if the input iterable is sorted, the combination tuples will be produced in sorted order.
+Elements are treated as unique based on their position, not on their value. So if the input elements are unique, there will be no repeat values in each combination."
+builtin.itertools,"combinations_with_replacement(iterable, r)",,"Return r length subsequences of elements from the input iterable allowing individual elements to be repeated more than once.
+Combinations are emitted in lexicographic sort order. So, if the input iterable is sorted, the combination tuples will be produced in sorted order.
+Elements are treated as unique based on their position, not on their value. So if the input elements are unique, the generated combinations will also be unique."
+builtin.itertools,"compress(data, selectors)",,Make an iterator that filters elements from data returning only those that have a corresponding element in selectors that evaluates to True. Stops when either the data or selectors iterables has been exhausted. 
+builtin.itertools,count(),"start=0, step=1","Make an iterator that returns evenly spaced values starting with n. Often used as an argument to imap() to generate consecutive data points. Also, used with izip() to add sequence numbers."
+builtin.itertools,"count(start=0, step=1)",,"Make an iterator that returns evenly spaced values starting with number start. Often used as an argument to map() to generate consecutive data points. Also, used with zip() to add sequence numbers."
+builtin.itertools,cycle(iterable),,"Make an iterator returning elements from the iterable and saving a copy of each. When the iterable is exhausted, return elements from the saved copy. Repeats indefinitely."
+builtin.itertools,"dropwhile(predicate, iterable)",,"Make an iterator that drops elements from the iterable as long as the predicate is true; afterwards, returns every element. Note, the iterator does not produce any output until the predicate first becomes false, so it may have a lengthy start-up time."
+builtin.itertools,"filterfalse(predicate, iterable)",,"Make an iterator that filters elements from iterable returning only those for which the predicate is False. If predicate is None, return the items that are false. "
+builtin.itertools,"islice(iterable, start, stop)",[step],"Make an iterator that returns selected elements from the iterable. If start is non-zero, then elements from the iterable are skipped until start is reached. Afterward, elements are returned consecutively unless step is set higher than one which results in items being skipped. If stop is None, then iteration continues until the iterator is exhausted, if at all; otherwise, it stops at the specified position. Unlike regular slicing, **islice()** does not support negative values for start, stop, or step. Can be used to extract related fields from data where the internal structure has been flattened (for example, a multi-line report may list a name field on every third line)."
+builtin.itertools,"islice(iterable, stop)","start = 0, [step]","islice(iterable, stop) --> islice object
+islice(iterable, start, stop[, step]) --> islice object
+Return an iterator whose next() method returns selected values from an iterable.  If start is specified, will skip all preceding elements;otherwise, start defaults to zero.
+Step defaults to one.
+If specified as another value, step determines how many values are skipped between successive calls.  Works like a slice() on a list but returns an iterator.
+"
+builtin.itertools,permutations(iterable),r=None,"Return successive r length permutations of elements in the iterable.
+If r is not specified or is None, then r defaults to the length of the *iterable* and all possible full-length permutations are generated.
+Permutations are emitted in lexicographic sort order. So, if the input iterable is *sorted*, the permutation tuples will be produced in sorted order.
+Elements are treated as unique based on their position, not on their value. So if the input elements are unique, there will be no repeat values in each permutation."
+builtin.itertools,repeat(object),[times],Make an iterator that returns object over and over again. Runs indefinitely unless the times argument is specified. Used as argument to imap() for invariant function parameters. Also used with izip() to create constant fields in a tuple record.
+builtin.json,"dump(obj, fp)","skipkeys=False, ensure_ascii=True,
+check_circular=True, allow_nan=True,
+cls=None, indent=None, separators=None,
+default=None, sort_keys=False","Serialize obj as a JSON formatted stream to fp (a .write()-supporting file-like object) using this conversion table.Serialize obj as a JSON formatted stream to fp (a .write()-supporting file-like object) using this conversion table.
+**ensure_ascii**
+If ``ensure_ascii`` is false, then the strings written to ``fp`` can contain non-ASCII characters if they appear in strings contained in ``obj``. Otherwise, all such characters are escaped in JSON strings."
+builtin.json,dumps(obj),"skipkeys=False, ensure_ascii=True
+check_circular=True","Serialize ``obj`` to a JSON formatted ``str``.
+**ensure_ascii**
+If ``ensure_ascii`` is false, then the return value can contain non-ASCII characters if they appear in strings contained in ``obj``. Otherwise, all such characters are escaped in JSON strings.
+"
+builtin.json,load(fp),"cls=None, object_hook=None,
+parse_float=None, parse_int=None,
+parse_constant=None,
+object_pairs_hook=None",Deserialize fp (a .read()-supporting file-like object containing a JSON document) to a Python object using this conversion table.
+builtin.json,loads(s),"encoding=None, cls=None,
+object_hook=None, parse_float=None,
+parse_int=None, parse_constant=None,
+object_pairs_hook=None","Deserialize s (a str, bytes or bytearray instance containing a JSON document) to a Python object using this conversion table."
+builtin.list*,append(x),,appends *x* to the end of the sequence (same as s[len(s):len(s)] = [x])
+builtin.list*,clear(),,removes all items from s (same as del s[:])
+builtin.list*,copy(),,creates a shallow copy of s (same as s[:])
+builtin.list*,count(x),,total number of occurrences of *x* in s
+builtin.list*,extend(t),,"extends s with the contents of t (for the most part the same as s[len(s):len(s)] = t)
+or s += t"
+builtin.list*,index(x),"[i[, j]]",Index of the first occurrence of *x* in s (at or after index *i* and before index *j*)
+builtin.list*,"insert(i, x)",,inserts x into s at the index given by *i* (same as s[i:i] = [x])
+builtin.list*,pop([i]),,retrieves the item at *i* and also removes it from s
+builtin.list*,remove(x),,remove the first item from s where s[i] == *x*
+builtin.list*,reverse(),,reverses the items of s in place
+builtin.list*,sort(*),"key=None, reverse=None","This method sorts the list in place, using only < comparisons between items. Exceptions are not suppressed - if any comparison operations fail, the entire sort operation will fail (and the list will likely be left in a partially modified state)."
+builtin.logging,basicConfig(),**kwargs,"Does basic configuration for the logging system by creating a *StreamHandler* with a default Formatter and adding it to the root logger. The functions debug(), info(), warning(), error() and critical() will call basicConfig() automatically if no handlers are defined for the root logger.
+This function does nothing if the root logger already has handlers configured for it."
+builtin.logging.Logger*,info(msg),"*args, **kwargs",Logs a message with level INFO on this logger. The arguments are interpreted as for debug().
+builtin.os,chdir(),,Change the current working directory to the specified path.
+builtin.os,getcwd(),,Return a unicode string representing the current working directory.
+builtin.os,listdir(path),,Return a list containing the names of the entries in the directory given by path. The list is in arbitrary order. It does not include the special entries '.' and '..' even if they are present in the directory.
+builtin.os.path,exists(path),,"Return True if path refers to an existing path or an open file descriptor. Returns False for broken symbolic links. On some platforms, this function may return False if permission is not granted to execute os.stat() on the requested file, even if the path physically exists."
+builtin.pickle,"dump(obj, file)","protocol=None, *
+fix_imports=True","Write a pickled representation of obj to the open file object file. This is equivalent to Pickler(file, protocol).dump(obj).
+# use open(filename, 'wb')"
+builtin.pickle,dumps(obj),"protocol=None, *
+fix_imports=True","Return the pickled representation of the object as a bytes object, instead of writing it to a file."
+builtin.pickle,load(file),"*, fix_imports=True
+encoding=""ASCII"", errors=""strict""",Read a pickled object representation from the open file object file and return the reconstituted object hierarchy specified therein. This is equivalent to Unpickler(file).load().
+builtin.pickle,loads(bytes_object),"*, fix_imports=True
+encoding=""ASCII"", errors=""strict""",Read a pickled object hierarchy from a bytes object and return the reconstituted object hierarchy specified therein.
+builtin.random,shuffle(x),[random],"Shuffle the sequence x in place.
+The optional argument random is a 0-argument function returning a random float in [0.0, 1.0); by default, this is the function random().
+To shuffle an immutable sequence and return a new shuffled list, use sample(x, k=len(x)) instead."
+builtin.re,compile(pattern),flags=0,"Compile a regular expression pattern into a regular expression object, which can be used for matching using its match() and search() methods, described below.
+The expression's behaviour can be modified by specifying a flags value.
+**flags**
+-- The value of flags which are available:
+re.DEBUG
+Display debug information about compiled expression.
+re.I
+re.IGNORECASE
+Perform case-insensitive matching; expressions like [A-Z] will match lowercase letters, too. This is not affected by the current locale. To get this effect on non-ASCII Unicode characters such as ¨¹ and  , add the UNICODE flag.
+re.L
+re.LOCALE
+Make \w, \W, \b, \B, \s and \S dependent on the current locale.
+re.M
+re.MULTILINE
+When specified, the pattern character '^' matches at the beginning of the string and at the beginning of each line (immediately following each newline); and the pattern character '$' matches at the end of the string and at the end of each line (immediately preceding each newline). By default, '^' matches only at the beginning of the string, and '$' only at the end of the string and immediately before the newline (if any) at the end of the string.
+re.S
+re.DOTALL
+Make the '.' special character match any character at all, including a newline; without this flag, '.' will match anything except a newline.
+re.U
+re.UNICODE
+Make the \w, \W, \b, \B, \d, \D, \s and \S sequences dependent on the Unicode character properties database. Also enables non-ASCII matching for IGNORECASE.
+New in version 2.0.
+re.X
+re.VERBOSE
+This flag allows you to write regular expressions that look nicer and are more readable by allowing you to visually separate logical sections of the pattern and add comments. Whitespace within the pattern is ignored, except when in a character class or when preceded by an unescaped backslash. When a line contains a # that is not in a character class and is not preceded by an unescaped backslash, all characters from the leftmost such # through the end of the line are ignored."
+builtin.re,"findall(pattern, string)",flags=0,"Return all non-overlapping matches of pattern in string, as a list of strings. The string is scanned left-to-right, and matches are returned in the order found. If one or more groups are present in the pattern, return a list of groups; this will be a list of tuples if the pattern has more than one group. Empty matches are included in the result unless they touch the beginning of another match.
+New in version 1.5.2.
+Changed in version 2.4: Added the optional flags argument."
+builtin.re,"search(pattern, string)",flags=0,"Scan through string looking for a match to the pattern, returning a match object, or None if no match was found."
+builtin.re,"sub(pattern, repl, string)","count=0, flags=0","Return the string obtained by replacing the leftmost non-overlapping occurrences of pattern in string by the replacement repl. If the pattern isn't found, string is returned unchanged. repl can be a string or a function; if it is a string, any backslash escapes in it are processed. That is, \n is converted to a single newline character, \r is converted to a carriage return, and so forth. Unknown escapes such as \& are left alone. Backreferences, such as \6, are replaced with the substring matched by group 6 in the pattern.
+If repl is a function, it is called for every non-overlapping occurrence of pattern. The function takes a single match object argument, and returns the replacement string.
+The pattern may be a string or an RE object.
+The optional argument count is the maximum number of pattern occurrences to be replaced; count must be a non-negative integer. If omitted or zero, all occurrences will be replaced. Empty matches for the pattern are replaced only when not adjacent to a previous match, so sub('x*', '-', 'abc') returns '-a-b-c-'."
+builtin.re.match*,end(),[group],Return the indices of the end of the substring matched by group; group defaults to zero (meaning the whole matched substring).
+builtin.re.match*,group(),"[group1, ...]","Returns one or more subgroups of the match. If there is a single argument, the result is a single string; if there are multiple arguments, the result is a tuple with one item per argument. Without arguments, group1 defaults to zero (the whole match is returned). If a groupN argument is zero, the corresponding return value is the entire matching string; if it is in the inclusive range [1..99], it is the string matching the corresponding parenthesized group. "
+builtin.re.match*,groups(),default=None,"Return a tuple containing all the subgroups of the match, from 1 up to however many groups are in the pattern. The default argument is used for groups that did not participate in the match; it defaults to None."
+builtin.re.match*,start(),[group],Return the indices of the start of the substring matched by group; group defaults to zero (meaning the whole matched substring).
+builtin.set*,add(elem),,"Add element *elem* to the set.
+-- If *elem* has already exist, then do nothing."
+builtin.set*,issubset(other),,Test whether every element in the set is in *other*.
+builtin.set*,union(*others),,Return a new set with elements from the set and all others.
+builtin.str*,capitalize(),,Return a copy of the string with its first character capitalized and the rest lowercased.
+builtin.str*,"count(self, sub)","start=None, end=None","S.count(sub[, start[, end]]) -> int
+Return the number of non-overlapping occurrences of substring sub in string S[start:end].  Optional arguments start and end are interpreted as in slice notation."
+builtin.str*,"find(self, sub)","start=None, end=None","S.find(sub[, start[, end]]) -> int
+Return the lowest index in S where substring sub is found, such that sub is contained within S[start:end].  Optional arguments start and end are interpreted as in slice notation.
+Return -1 on failure."
+builtin.str*,"format(*args, **kwargs)",,"Return a formatted version of S, using substitutions from args and kwargs. The substitutions are identified by braces ('{' and '}')."
+builtin.str*,index(sub),"[, start[, end]]","Like find(), but raise ValueError when the substring is not found."
+builtin.str*,isspace(),,"Return true if there are only whitespace characters in the string and there is at least one character, false otherwise. Whitespace characters are those characters defined in the Unicode character database as ¡°Other'' or ¡°Separator'' and those with bidirectional property being one of ¡°WS'', ¡°B'', or ¡°S''."
+builtin.str*,join(iterable),,"Return a string which is the concatenation of the strings in the iterable *iterable*. **A TypeError** will be raised if there are any non-string values in iterable, including bytes objects. The separator between elements is the string providing this method."
+builtin.str*,lower(),,Return a copy of the string with all the cased characters converted to lowercase.
+builtin.str*,lstrip([chars]),,"Return a copy of the string with leading characters removed. The *chars* argument is a string specifying the set of characters to be removed. If omitted or None, the *chars* argument defaults to removing whitespace. The *chars* argument is not a prefix; rather, all combinations of its values are stripped."
+builtin.str*,"replace(old, new)",count=None,"S.replace(old, new[, count]) -> str
+Return a copy of S with all occurrences of substring old replaced by new.  If the optional argument count is given, only the first count occurrences are replaced."
+builtin.str*,rstrip([chars]),,"Return a copy of the string with trailing characters removed. The *chars* argument is a string specifying the set of characters to be removed. If omitted or None, the *chars* argument defaults to removing whitespace. The *chars* argument is not a suffix; rather, all combinations of its values are stripped."
+builtin.str*,split(),"sep=None, maxsplit=-1","Return a list of the words in the string, using *sep* as the delimiter string. If *maxsplit* is given, at most *maxsplit* splits are done (thus, the list will have at most *maxsplit* + 1 elements). If *maxsplit* is not specified or -1, then there is no limit on the number of splits (all possible splits are made)."
+builtin.str*,splitlines(),[keepends],"Return a list of the lines in the string, breaking at line boundaries. Line breaks are not included in the resulting list unless keepends is given and true."
+builtin.str*,startswith(prefix),"[, start[, end]]","Return True if string starts with the prefix, otherwise return False. prefix can also be a tuple of prefixes to look for. With optional start, test string beginning at that position. With optional end, stop comparing string at that position."
+builtin.str*,strip([chars]),,"Return a copy of the string with the leading and trailing characters removed. The *chars* argument is a string specifying the set of characters to be removed. If omitted or None, the *chars* argument defaults to removing whitespace. The *chars* argument is not a prefix or suffix; rather, all combinations of its values are stripped."
+builtin.str*,title(),,Return a titlecased version of the string where words start with an uppercase character and the remaining characters are lowercase.
+builtin.str*,upper(),,Return a copy of the string with all the cased characters converted to uppercase.
+builtin.subprocess,call(*popenargs),"timeout=None, **kwargs","Run command with arguments. Wait for command to complete or timeout, then return the returncode attribute.
+-- Remember add: *shell=True*"
+builtin.sys,.path,,"A list of strings that specifies the search path for modules. Initialized from the environment variable PYTHONPATH, plus an installation-dependent default."
+builtin.threading,active_count(),,Return the number of Thread objects currently alive.
+builtin.threading,Thread(),,A class that represents a thread of control.
+builtin.time,localtime(),seconds=None,"Like gmtime() but converts to local time. If secs is not provided or None, the current time as returned by time() is used. The dst flag is set to 1 when DST applies to the given time."
+builtin.time,sleep(seconds),,"Suspend execution of the current thread for the given number of seconds. The argument may be a floating point number to indicate a more precise sleep time. The actual suspension time may be less than that requested because any caught signal will terminate the sleep() following execution of that signal¡¯s catching routine. Also, the suspension time may be longer than requested by an arbitrary amount because of the scheduling of other activity in the system."
+builtin.time,time(),,"time() -> floating point number
+Return the current time in seconds since the Epoch.
+Fractions of a second may be present if the system clock provides them."
+cx_Oracle,connect(),"mode=None, handle=None, pool=None
+threaded=False, events=False
+cclass=None, purity=None
+newpassword=None, encoding=None
+nencoding=None, edition=None
+appcontext=[], tag=None, matchanytag=None
+shardingkey=[], supershardingkey=[]","Constructor for creating a connection to the database. Return a connection object. All parameters are optional and can be specified as keyword parameters.
+
+# example: conn = cx_Oracle.connect('username', 'password', 'hosta:1521/orcl')"
+cx_Oracle,cursor(connection),,Constructor for creating a cursor. Return a new cursor object using the connection.
+flask,Flask(_PackageBoundObject),,"The flask object implements a WSGI application and acts as the central object.  It is passed the name of the module or package of the application.  Once it is created it will act as a central registry for the view functions, the URL rules, template configuration and much more.
+The name of the package is used to resolve resources from inside the package or the folder the module is contained in depending on if the package parameter resolves to an actual python package (a folder with an :file:`__init__.py` file inside) or a standard module (just a ``.py`` file)."
+flask,"route(rule, **options)",,"A decorator that is used to register a view function for a given URL rule.  This does the same thing as :meth:`add_url_rule` but is intended for decorator usage::
+ @app.route('/')
+    def index():
+        return 'Hello World'
+**rule**
+the URL rule as string.
+**options**
+the options to be forwarded to the underlying :class:`~werkzeug.routing.Rule` object.  A change to Werkzeug is handling of method options.  methods is a list of methods this rule should be limited to (``GET``, ``POST`` etc.).  By default a rule just listens for ``GET`` (and implicitly ``HEAD``).
+Starting with Flask 0.6, ``OPTIONS`` is implicitly added and handled by the standard request handling."
+flask,run(),"host=None, port=None
+debug=None, **options","Runs the application on a local development server.
+**host**
+the hostname to listen on. Set this to ``'0.0.0.0'`` to have the server available externally as well. Defaults to ``'127.0.0.1'``.
+**port**
+the port of the webserver. Defaults to ``5000`` or the port defined in the ``SERVER_NAME`` config variable if present.
+**debug**
+if given, enable or disable debug mode. See :attr:`debug`."
+jieba,add_word(word),"freq=None, tag=None","Add a word to dictionary.
+freq and tag can be omitted, freq defaults to be a calculated value that ensures the word can be cut out."
+jieba,cut(sentence),"cut_all=False, HMM=True","The main function that segments an entire sentence that contains Chinese characters into seperated words.
+**sentence**
+The str(unicode) to be segmented.
+**cut_all**
+Model type. True for full pattern, False for accurate pattern.
+**HMM**
+Whether to use the Hidden Markov Model."
+jieba,cut_for_search(sentence),HMM=True,Finer segmentation for search engines.
+jieba,extract_tags(sentence),"topK=20, withWeight=False,
+allowPOS=(), withFlag=False","Extract keywords from sentence using TF-IDF algorithm.
+**topK**
+return how many top keywords. `None` for all possible words.
+**withWeight**
+if True, return a list of (word, weight); if False, return a list of words.
+**allowPOS**
+the allowed POS list eg. ['ns', 'n', 'vn', 'v','nr']. if the POS of w is not in this list,it will be filtered.
+**withFlag**
+only work with allowPOS is not empty. if True, return a list of pair(word, weight) like posseg.cut; if False, return a list of words"
+jieba,lcut(sentence),"cut_all=False, HMM=True","The main function that segments an entire sentence that contains Chinese characters into seperated words.
+-- Return a list rather than a generator.
+**sentence**
+The str(unicode) to be segmented.
+**cut_all**
+Model type. True for full pattern, False for accurate pattern.
+**HMM**
+Whether to use the Hidden Markov Model."
+jieba,lcut_for_search(sentence),HMM=True,"Finer segmentation for search engines.
+-- Return a list rather than a generator."
+jieba,load_userdict(f),,Load personalized dict to improve detect rate.
+jieba,suggest_freq(segment),tune=True,Suggest word frequency to force the characters in a word to be joined or splitted.
+matplotlib.pyplot,plot(),"*args, **kwargs","Plot lines and/or markers to the Axes. args is a variable length argument, allowing for multiple x, y pairs with an optional format string. For example, each of the following is legal:"
+matplotlib.pyplot,"scatter(x, y)","s=None, c=None, marker=None
+..., **kwargs","Make a scatter plot of *x* vs *y*
+Marker size is scaled by *s* and marker color is mapped to *c*."
+multiprocessing,Array(),"typecode_or_type, size_or_initializer, *, lock=True",Return a ctypes array allocated from shared memory. By default the return value is actually a synchronized wrapper for the array.
+multiprocessing,cpu_count(),,"Return the number of CPUs in the system.
+This number is not equivalent to the number of CPUs the current process can use. The number of usable CPUs can be obtained with len(os.sched_getaffinity(0))
+# The result is equal to os.cpu_count(), the id() is the same."
+multiprocessing,Lock(),,Return a synchronization wrapper for a RawArray
+multiprocessing,Pipe(),duplex = True,"Returns a pair (conn1, conn2) of Connection objects representing the ends of a pipe.
+If duplex is True (the default) then the pipe is bidirectional. If duplex is False then the pipe is unidirectional: conn1 can only be used for receiving messages and conn2 can only be used for sending messages.
+# The class of conn1, conn2 is multiprocessing.connection.PipeConnection*."
+multiprocessing,Pipe(),duplex = True,"Returns a pair (conn1, conn2) of Connection objects representing the ends of a pipe.
+
+If duplex is True (the default) then the pipe is bidirectional. If duplex is False then the pipe is unidirectional: conn1 can only be used for receiving messages and conn2 can only be used for sending messages.
+
+# The class of conn1, conn2 is multiprocessing.connection.PipeConnection*.
+
+# The two connection objects returned by Pipe() represent the two ends of the pipe. Each connection object has send() and recv() methods (among others). Note that data in a pipe may become corrupted if two processes (or threads) try to read from or write to the same end of the pipe at the same time. Of course there is no risk of corruption from processes using different ends of the pipe at the same time."
+multiprocessing,Pool(),"processes, initializer, initargs
+maxtasksperchild","A process **pool** object which controls a pool of worker processes to which jobs can be submitted. It supports asynchronous results with timeouts and callbacks and has a parallel map implementation.
+*processes* is the number of worker processes to use. If *processes* is None then the number returned by cpu_count() is used. If *initializer* is not None then each worker process will call initializer(*initargs) when it starts.
+Note that the methods of the pool object should only be called by the process which created the pool."
+multiprocessing,Process(),"[group], [target], [name]
+args=(), kwargs={}, *, [daemon]","Process objects represent activity that is run in a separate process. The Process class has equivalents of all the methods of threading.Thread.
+The constructor should always be called with keyword arguments. group should always be None; it exists solely for compatibility with threading.Thread. target is the callable object to be invoked by the run() method. It defaults to None, meaning nothing is called. name is the process name (see name for more details). args is the argument tuple for the target invocation. kwargs is a dictionary of keyword arguments for the target invocation. If provided, the keyword-only daemon argument sets the process daemon flag to True or False. If None (the default), this flag will be inherited from the creating process.
+By default, no arguments are passed to target.
+If a subclass overrides the constructor, it must make sure it invokes the base class constructor (Process.__init__()) before doing anything else to the process."
+multiprocessing,Queue(),maxsize,"Returns a process shared queue implemented using a pipe and a few locks/semaphores. When a process first puts an item on the queue a feeder thread is started which transfers objects from a buffer into the pipe.
+The usual Queue.Empty and Queue.Full exceptions from the standard library¡¯s Queue module are raised to signal timeouts.
+Queue implements all the methods of Queue.Queue except for task_done() and join()."
+multiprocessing,set_start_method(method),,"Set the method which should be used to start child processes. method can be 'fork', 'spawn' or 'forkserver'.
+Note that this should be called at most once, and it should be protected inside the if __name__ == '__main__' clause of the main module."
+multiprocessing,Value(),"typecode_or_type, *args, lock=True","Return a ctypes object allocated from shared memory. By default the return value is actually a synchronized wrapper for the object. The object itself can be accessed via the value attribute of a Value.
+
+typecode_or_type determines the type of the returned object: it is either a ctypes type or a one character typecode of the kind used by the array module. *args is passed on to the constructor for the type.
+
+If lock is True (the default) then a new recursive lock object is created to synchronize access to the value. If lock is a Lock or RLock object then that will be used to synchronize access to the value. If lock is False then access to the returned object will not be automatically protected by a lock, so it will not necessarily be ¡°process-safe¡±."
+multiprocessing.connection.PipeConnection*,close(),,"Close the connection.
+This is called automatically when the connection is garbage collected."
+multiprocessing.connection.PipeConnection*,fileno(),,Return the file descriptor or handle used by the connection.
+multiprocessing.connection.PipeConnection*,poll(),[timeout],"Return whether there is any data available to be read.
+If timeout is not specified then it will return immediately. If timeout is a number then this specifies the maximum time in seconds to block. If timeout is None then an infinite timeout is used.
+Note that multiple connection objects may be polled at once by using multiprocessing.connection.wait()."
+multiprocessing.connection.PipeConnection*,recv(),,Return an object sent from the other end of the connection using send(). Blocks until there is something to receive. Raises EOFError if there is nothing left to receive and the other end was closed.
+multiprocessing.connection.PipeConnection*,send(obj),,"Send an object to the other end of the connection which should be read using recv().
+The object must be picklable. Very large pickles (approximately 32 MB+, though it depends on the OS) may raise a ValueError exception."
+multiprocessing.Pool*,"map(func, iterable)",chunksize,"A parallel equivalent of the map() built-in function (it supports only one *iterable* argument though). It blocks until the result is ready.
+This method chops the iterable into a number of chunks which it submits to the process pool as separate tasks. The (approximate) size of these chunks can be specified by setting *chunksize* to a positive integer."
+multiprocessing.Process*,.name,,"The process¡¯s name.
+The name is a string used for identification purposes only. It has no semantics. Multiple processes may be given the same name. The initial name is set by the constructor."
+multiprocessing.Process*,.pid,,"Return the process ID. Before the process is spawned, this will be None."
+multiprocessing.Process*,is_alive(),,"Return whether the process is alive.
+Roughly, a process object is alive from the moment the start() method returns until the child process terminates."
+multiprocessing.Process*,join(),timeout,"If the optional argument timeout is None (the default), the method blocks until the process whose join() method is called terminates. If timeout is a positive number, it blocks at most timeout seconds. Note that the method returns None if its process terminates or if the method times out. Check the process¡¯s exitcode to determine if it terminated.
+A process can be joined many times.
+A process cannot join itself because this would cause a deadlock. It is an error to attempt to join a process before it has been started."
+multiprocessing.Process*,run(),,"Method representing the process¡¯s activity.
+You may override this method in a subclass. The standard run() method invokes the callable object passed to the object¡¯s constructor as the target argument, if any, with sequential and keyword arguments taken from the args and kwargs arguments, respectively."
+multiprocessing.Process*,start(),,"Start the process¡¯s activity.
+This must be called at most once per process object. It arranges for the object¡¯s run() method to be invoked in a separate process."
+multiprocessing.Queue*,close(),,Indicate that no more data will be put on this queue by the current process. The background thread will quit once it has flushed all buffered data to the pipe. This is called automatically when the queue is garbage collected.
+multiprocessing.Queue*,empty(),,"Return True if the queue is empty, False otherwise. Because of multithreading/multiprocessing semantics, this is not reliable."
+multiprocessing.Queue*,full(),,"Return True if the queue is full, False otherwise. Because of multithreading/multiprocessing semantics, this is not reliable."
+multiprocessing.Queue*,get(),"block, timeout","Remove and return an item from the queue. If optional args block is True (the default) and timeout is None (the default), block if necessary until an item is available. If timeout is a positive number, it blocks at most timeout seconds and raises the Queue.Empty exception if no item was available within that time. Otherwise (block is False), return an item if one is immediately available, else raise the Queue.Empty exception (timeout is ignored in that case)."
+multiprocessing.Queue*,get_nowait(),,Equivalent to get(False).
+multiprocessing.Queue*,put(obj),,"Put obj into the queue. If the optional argument block is True (the default) and timeout is None (the default), block if necessary until a free slot is available. If timeout is a positive number, it blocks at most timeout seconds and raises the Queue.Full exception if no free slot was available within that time. Otherwise (block is False), put an item on the queue if a free slot is immediately available, else raise the Queue.Full exception (timeout is ignored in that case)."
+multiprocessing.Queue*,put_nowait(obj),,"Equivalent to put(obj, False)."
+multiprocessing.Queue*,qsize(),,"Return the approximate size of the queue. Because of multithreading/multiprocessing semantics, this number is not reliable.
+Note that this may raise NotImplementedError on Unix platforms like Mac OS X where sem_getvalue() is not implemented."
+multiprocessing.sharedctypes,"Array(typecode_or_type, size_or_initializer)","*, lock=True, ctx=None","Return a synchronization wrapper for a Value.
+typecode_to_type is in sharedctypes.
+typecode_to_type = {
+    'c': ctypes.c_char,  'u': ctypes.c_wchar,
+    'b': ctypes.c_byte,  'B': ctypes.c_ubyte,
+    'h': ctypes.c_short, 'H': ctypes.c_ushort,
+    'i': ctypes.c_int,   'I': ctypes.c_uint,
+    'l': ctypes.c_long,  'L': ctypes.c_ulong,
+    'f': ctypes.c_float, 'd': ctypes.c_double
+}"
+multiprocessing.sharedctypes,Value(typecode_or_type),"*args, lock=True, ctx=None","Return a synchronization wrapper for a Value.
+typecode_to_type is in sharedctypes.
+typecode_to_type = {
+    'c': ctypes.c_char,  'u': ctypes.c_wchar,
+    'b': ctypes.c_byte,  'B': ctypes.c_ubyte,
+    'h': ctypes.c_short, 'H': ctypes.c_ushort,
+    'i': ctypes.c_int,   'I': ctypes.c_uint,
+    'l': ctypes.c_long,  'L': ctypes.c_ulong,
+    'f': ctypes.c_float, 'd': ctypes.c_double
+}"
+numpy,absolute(x),out=None,Calculate the absolute value element-wise.
+numpy,all(a),"axis=None, out=None",Test whether all array elements along a given axis evaluate to True.
+numpy,any(a),"axis=None, out=None","Test whether any array element along a given axis evaluates to True.
+Returns single boolean unless axis is not None."
+numpy,"append(arr, values)",axis=None,Append values to the end of an array.
+numpy,arange(stop),"start=0, step=1, dtype=None","Return evenly spaced values within a given interval.
+Values are generated within the half-open interval [start, stop) (in other words, the interval including start but excluding stop). For integer arguments the function is equivalent to the Python built-in range function, but returns an ndarray rather than a list.  When using a non-integer step, such as 0.1, the results will often not be consistent. It is better to use linspace for these cases."
+numpy,argmax(a),"axis=None, out=None",Returns the indices of the maximum values along an axis.
+numpy,argmin(a),"axis=None, out=None",Returns the indices of the minimum values along an axis.
+numpy,array(object),"dtype=None, copy=True, order='K', 
+subok=False, ndmin=0",Create an array.
+numpy,asarray(a),"dtype=None, order=None",Convert the input to an array.
+numpy,ascontiguousarray(a),dtype=None,Return a contiguous array in memory (C order).
+numpy,asmatrix(data),dtype=None,"Interpret the input as a matrix.
+Unlike matrix, asmatrix does not make a copy if the input is already a matrix or an ndarray.
+Equivalent to matrix(data, copy=False), or mat()."
+numpy,c_[],,Translates slice objects to concatenation along the second axis.
+numpy,"clip(a, a_min, a_max)",out=None,"Clip (limit) the values in an array.
+
+Given an interval, values outside the interval are clipped to the interval edges.  For example, if an interval of ``[0, 1]`` is specified, values smaller than 0 become 0, and values larger than 1 become 1."
+numpy,"concatenate((a1, a2, ...))",axis=0,"Join a sequence of arrays along an existing axis.
+**Also see**: *hstack()*, *vstack()*."
+numpy,copy(a),order='K',Return an array copy of the given object.
+numpy,count_nonzero(a),axis=None,Counts the number of non-zero values in the array a.
+numpy,cumprod(a),"axis=None, dtype=None, out=None",Return the cumulative product of elements along a given axis.
+numpy,cumsum(a),"axis=None, dtype=None, out=None",Return the cumulative sum of the elements along a given axis.
+numpy,"delete(arr, obj)",axis=None,"Return a new array with sub-arrays along an axis deleted. For a one dimensional array, this returns those entries not returned by arr[obj]."
+numpy,"dot(a, b)",out=None,"Dot product of two arrays.
+For 2-D arrays it is equivalent to matrix multiplication, and for 1-D arrays to inner product of vectors (without complex conjugation).For N dimensions it is a sum product over the last axis of a and the second-to-last of b:  
+dot(a, b)[i,j,k,m] = sum(a[i,j,:] * b[k,:,m])"
+numpy,dtype(obj),"align=False, copy=False","Create a data type object.
+A numpy array is homogeneous, and contains elements described by a dtype object. A dtype object can be constructed from different combinations of fundamental numeric types."
+numpy,empty(shape),"dtype=float, order='C'","Return a new array of given shape and type, without initializing entries."
+numpy,exp(x),out=None,Calculate the exponential of all elements in the input array.
+numpy,eye(N),"M=None, k=0, dtype=<type 'float'>",Return a 2-D array with ones on the diagonal and zeros elsewhere.
+numpy,fabs(x),out=None,"Compute the absolute values element-wise.
+This function returns the absolute values (positive magnitude) of the data in x. Complex values are not handled, use absolute to find the absolute values of complex data."
+numpy,identity(n),dtype=None,Return the identity array. The identity array is a square array with ones on the main diagonal.
+numpy,"in1d(ar1, ar2)","assume_unique=False, invert=False","Test whether each element of a 1-D array is also present in a second array.
+Returns a boolean array the same length as ar1 that is True where an element of ar1 is in ar2 and False otherwise."
+numpy,"intersect1d(ar1, ar2)",assume_unique=False,"Find the intersection of two arrays.
+Return the sorted, unique values that are in both of the input arrays."
+numpy,isfinite(x),out=None,"Test element-wise for finiteness (not infinity or not Not a Number).
+The result is returned as a boolean array."
+numpy,isinf(x),out=None,"Test element-wise for positive or negative infinity.
+Returns a boolean array of the same shape as x, True where x == +/-inf, otherwise False."
+numpy,isnan(x),out=None,Test element-wise for NaN and return result as a boolean array.
+numpy,ix_(*args),,"Construct an open mesh from multiple sequences.
+This function takes N 1-D sequences and returns N outputs with N dimensions each, such that the shape is 1 in all but one dimension and the dimension with the non-unit shape value cycles through all N dimensions.
+Using ix_ one can quickly construct index arrays that will index the cross product. a[np.ix_([1,3],[2,5])] returns the array [[a[1,2] a[1,5]], [a[3,2] a[3,5]]].
+"
+numpy,"linspace(start, stop)","num=50, endpoint=True,
+retstep=False, dtype=None","Return evenly spaced numbers over a specified interval.
+Returns *num* evenly spaced samples, calculated over the interval [start, stop].
+The endpoint of the interval can optionally be excluded."
+numpy,loadtxt(fname),"dtype=<type 'float'>, comments='#',
+delimiter=None, converters=None, skiprows=0,
+usecols=None, unpack=False, ndmin=0","Load data from a text file.
+Each row in the text file must have the same number of values."
+numpy,"logical_and(x1, x2)","[, out]","Equals to <ufunc 'logical_and'>
+Compute the truth value of x1 AND x2 element-wise."
+numpy,logical_not(x),"[, out]","Equals to <ufunc 'logical_not'>
+Compute the truth value of NOT x element-wise."
+numpy,"logical_or(x1, x2)","[, out]","Equals to <ufunc 'logical_or'>
+Compute the truth value of x1 OR x2 element-wise."
+numpy,matrix(data),"dtype=None, copy=True","Returns a matrix from an array-like object, or from a string of data. A matrix is a specialized 2-D array that retains its 2-D nature through operations. It has certain special operators, such as * (matrix multiplication) and ** (matrix power).
+"
+numpy,mean(a),"axis=None, dtype=None, out=None","Compute the arithmetic mean along the specified axis.
+Returns the average of the array elements. The average is taken over the flattened array by default, otherwise over the specified axis. float64 intermediate and return values are used for integer inputs."
+numpy,"meshgrid(*xi, **kwargs)",,"Return coordinate matrices from coordinate vectors.
+Make N-D coordinate arrays for vectorized evaluations of N-D scalar/vector fields over N-D grids, given one-dimensional coordinate arrays x1, x2,..., xn.
+Changed in version 1.9: 1-D and 0-D cases are allowed."
+numpy,nonzero(a),,"Return the indices of the elements that are non-zero.
+Returns a tuple of arrays, one for each dimension of a, containing the indices of the non-zero elements in that dimension. The values in a are always tested and returned in row-major, C-style order."
+numpy,sign(x),...,"Returns an element-wise indication of the sign of a number.
+The sign function returns -1 if x < 0, 0 if x==0, 1 if x > 0. nan is returned for nan inputs."
+numpy,ones(shape),"dtype=None, order='C'","Return a new array of given shape and type, filled with ones."
+numpy,"power(x1, x2)",out=None,"First array elements raised to powers from second array, element-wise.
+Raise each base in x1 to the positionally-corresponding power in x2. x1 and x2 must be broadcastable to the same shape. Note that an integer type raised to a negative integer power will raise a ValueError.
+Equals to <ufunc 'power'>."
+numpy,"put(a, ind, v)",mode='raise',"Replaces specified elements of an array with given values.
+The indexing works on the flattened target array. put is roughly equivalent to:
+a.flat[ind] = v"
+numpy,r_[],,Translates slice objects to concatenation along the first axis.
+numpy,ravel(a),order='C',"Return a contiguous flattened array.
+A 1-D array, containing the elements of the input, is returned. A copy is made only if needed.
+As of NumPy 1.10, the returned array will have the same type as the input array. (for example, a masked array will be returned for a masked array input)"
+numpy,"repeat(a, repeats)",axis=None,"Repeat elements of an array.
+**axis**: The axis along which to repeat values. By default, use the flattened input array, and return a flat output array."
+numpy,"reshape(a, newshape)",order='C',"Gives a new shape to an array without changing its data.
+**newshape**: *int or tuple of ints*
+The new shape should be compatible with the original shape. If an integer, then the result will be a 1-D array of that length. One shape dimension can be -1. In this case, the value is inferred from the length of the array and remaining dimensions."
+numpy,rint(x),out=None,Round elements of the array to the nearest integer.
+numpy,"save(file, arr)","allow_pickle=True, fix_imports=True",Save an array to a binary file in NumPy .npy format.
+numpy,"savetxt(fname, X)","fmt='%.18e', delimiter=' ',
+newline='\n', header='',
+footer='', comments='# '","Save an array to a text file.
+**fname**
+filename or file handle
+If the filename ends in .gz, the file is automatically saved in compressed gzip format.
+**X**
+array_like
+Data to be saved to a text file.
+**delimiter**
+str, optional
+String or character separating columns."
+numpy,savez(file),"*args, **kwds","Save several arrays into a single file in uncompressed .npz format.
+If arguments are passed in with no keywords, the corresponding variable names, in the .npz file, are ¡®arr_0¡¯, ¡®arr_1¡¯, etc. If keyword arguments are given, the corresponding variable names, in the .npz file will match the keyword names."
+numpy,"setdiff1d(ar1, ar2)",assume_unique=False,"Find the set difference of two arrays.
+Return the sorted, unique values in ar1 that are not in ar2."
+numpy,"setxor1d(ar1, ar2)",assume_unique=False,"Find the set exclusive-or of two arrays.
+Return the sorted, unique values that are in only one (not both) of the input arrays."
+numpy,sort(a),"axis=-1, kind='quicksort', order=None",Return a sorted copy of an array.
+numpy,"split(ary, indices_or_sections)",axis=0,"Split an array into multiple sub-arrays.
+**indices_or_sections **: 
+If indices\_or\_sections is an integer, N, the array will be divided into N equal arrays along axis. If such a split is not possible, an error is raised.
+If indices\_or\_sections is a 1-D array of sorted integers, the entries indicate where along axis the array is split. 
+If an index exceeds the dimension of the array along axis, an empty sub-array is returned correspondingly.
+**Also see**: *hsplit*, *vsplit*, *dsplit*."
+numpy,sqrt(x),out=None,"Return the positive square-root of an array, element-wise."
+numpy,stack(arrays),axis=0,Join a sequence of arrays along a new axis.
+numpy,std(a),"axis=None, dtype=None,
+out=None, ddof=0","Compute the standard deviation along the specified axis.
+Returns the standard deviation, a measure of the spread of a distribution, of the array elements. The standard deviation is computed for the flattened array by default, otherwise over the specified axis."
+numpy,sum(a),"axis=None, dtype=None, out=None",Sum of array elements over a given axis.
+numpy,"take(a, indices)","axis=None, out=None, mode='raise'","Take elements from an array along an axis.
+This function does the same thing as ""fancy"" indexing (indexing arrays using arrays); however, it can be easier to use if you need elements along a given axis."
+numpy,"tile(A, reps)",,"Construct an array by repeating A the number of times given by reps.
+If reps has length d, the result will have dimension of max(d, A.ndim)."
+numpy,transpose(a),axes=None,Permute the dimensions of an array.
+numpy,"union1d(ar1, ar2)",,"Find the union of two arrays.
+Return the unique, sorted array of values that are in either of the two input arrays."
+numpy,unique(ar),"return_index=False,
+return_inverse=False,
+return_counts=False","Find the unique elements of an array.
+Returns the sorted unique elements of an array. There are three optional outputs in addition to the unique elements: the indices of the input array that give the unique values, the indices of the unique array that reconstruct the input array, and the number of times each unique value comes up in the input array.
+**return_inverse**: *bool, optional*
+If True, also return the indices of the unique array that can be used to reconstruct *ar*."
+numpy,var(a),"axis=None, dtype=None,
+out=None, ddof=0","Compute the variance along the specified axis.
+Returns the variance of the array elements, a measure of the spread of a distribution. The variance is computed for the flattened array by default, otherwise over the specified axis."
+numpy,vectorize(pyfunc),"otypes=None, doc=None,
+excluded=None, cache=False,
+signature=None","Generalized function class.
+Define a vectorized function which takes a nested sequence of objects or numpy arrays as inputs and returns an single or tuple of numpy array as output. The vectorized function evaluates pyfunc over successive tuples of the input arrays like the python map function, except it uses the broadcasting rules of numpy."
+numpy,where(condition),"x=None, y=None","Return elements, either from x or y, depending on condition.
+If only condition is given, return condition.nonzero().
+condition : *array_like*, *bool*
+    When True, yield x, otherwise yield y.
+x, y : *array_like*, *optional*
+    Values from which to choose. x and y need to have the same shape as condition.
+out : *ndarray or tuple of ndarrays*
+    If both x and y are specified, the output array contains elements of x where condition is True, and elements from y elsewhere.
+    If only condition is given, return the tuple condition.nonzero(), the indices where condition is True.
+"
+numpy,zeros(shape),"dtype=float, order='C'","Return a new array of given shape and type, filled with zeros."
+numpy.dtype*,.name,,"A bit-width name for this data-type.
+Un-sized flexible data-type objects do not have this attribute."
+numpy.matrix*,getA(),,"Return *self* as an *ndarray* object.
+Equivalent to **np.asarray(self)**."
+numpy.matrix*,getA1(),,"Return *self* as a flattened *ndarray*.
+Equivalent to **np.asarray(x).ravel()**."
+numpy.ndarray*,.base,,Base object if memory is from some other object.
+numpy.ndarray*,.ctypes,,An object to simplify the interaction of the array with the ctypes module.
+numpy.ndarray*,.data,,Python buffer object pointing to the start of the array's data.
+numpy.ndarray*,.dtype,,"Data-type of the array's elements.
+-- Return a numpy.dtype object."
+numpy.ndarray*,.flags,,Information about the memory layout of the array.
+numpy.ndarray*,.flat,,A 1-D iterator over the array.
+numpy.ndarray*,.imag,,The imaginary part of the array.
+numpy.ndarray*,.itemsize,,Length of one array element in bytes.
+numpy.ndarray*,.nbytes,,Total bytes consumed by the elements of the array.
+numpy.ndarray*,.ndim,,Number of array dimensions.
+numpy.ndarray*,.real,,The real part of the array.
+numpy.ndarray*,.shape,,Tuple of array dimensions.
+numpy.ndarray*,.size,,Number of elements in the array.
+numpy.ndarray*,.strides,,Tuple of bytes to step in each dimension when traversing an array.
+numpy.ndarray*,.T,,"Same as self.transpose(), except that self is returned if self.ndim < 2."
+numpy.ndarray*,all(),"axis=None, out=None, keepdims=False",Returns True if all elements evaluate to True.
+numpy.ndarray*,any(),"axis=None, out=None, keepdims=False",Returns True if any of the elements of *a* evaluate to True.
+numpy.ndarray*,argmax(),"axis=None, out=None",Return indices of the maximum values along the given *axis*.
+numpy.ndarray*,argmin(),"axis=None, out=None",Return indices of the minimum values along the given axis.
+numpy.ndarray*,argsort(),"axis=-1, kind='quicksort', order=None",Returns the indices that would sort this array.
+numpy.ndarray*,astype(),"order='K', casting='unsafe',
+subok=True, copy=True","Copy of the array, cast to a specified type."
+numpy.ndarray*,copy(),order='C',Return a copy of the array.
+numpy.ndarray*,cumprod(),"axis=None, dtype=None, out=None",Return the cumulative product of the elements along the given axis.
+numpy.ndarray*,cumsum(),"axis=None, dtype=None, out=None",Return the cumulative sum of the elements along the given axis.
+numpy.ndarray*,diagonal(),"offset=0, axis1=0, axis2=1",Return specified diagonals.
+numpy.ndarray*,dot(b),out=None,Dot product of two arrays.
+numpy.ndarray*,flatten(),order='C',Return a copy of the array collapsed into one dimension.
+numpy.ndarray*,max(),"axis=None, out=None",Return the maximum along a given axis.
+numpy.ndarray*,mean(),"axis=None, dtype=None,
+out=None, keepdims=False",Returns the average of the array elements along given axis.
+numpy.ndarray*,min(),"axis=None, out=None, keepdims=False",Return the minimum along a given axis.
+numpy.ndarray*,nonzero(),,Return the indices of the elements that are non-zero.
+numpy.ndarray*,ravel(),order=None,Return a flattened array.
+numpy.ndarray*,repeat(repeats),axis=None,Repeat elements of an array.
+numpy.ndarray*,reshape(shape),order='C',Returns an array containing the same data with a new shape.
+numpy.ndarray*,sort(),"axis=-1, kind='quicksort', order=None","Sort an array, in-place."
+numpy.ndarray*,std(),"axis=None, dtype=None, out=None,
+ddof=0, keepdims=False",Returns the standard deviation of the array elements along given axis.
+numpy.ndarray*,sum(),"axis=None, dtype=None,
+out=None, keepdims=False",Return the sum of the array elements over the given axis.
+numpy.ndarray*,take(indices),"axis=None, out=None,
+mode='raise'",Return an array formed from the elements of a at the given indices.
+numpy.ndarray*,tolist(),,"Return the array as a (possibly nested) list.
+Return a copy of the array data as a (nested) Python list. Data items are converted to the nearest compatible Python type."
+numpy.ndarray*,transpose(),*axes,Returns a view of the array with axes transposed.
+numpy.ndarray*,var(),"axis=None, dtype=None, out=None,
+ddof=0, keepdims=False","Returns the variance of the array elements, along given axis."
+numpy.random,permutation(x),,"Randomly permute a sequence, or return a permuted range.
+If x is a multi-dimensional array, it is only shuffled along its first index."
+numpy.random,rand(*dn),,"rand(d0, d1, ..., dn)
+Random values in a given shape.
+Create an array of the given shape and populate it with random samples from a uniform distribution over [0, 1)."
+numpy.random,randint(low),"high=None, size=None, dtype='l'","Return random integers from low (inclusive) to high (exclusive).
+Return random integers from the ¡°discrete uniform'' distribution of the specified dtype in the ¡°half-open'' interval [low, high). If high is None (the default), then results are from [0, low)."
+numpy.random,randn(),*dn,"randn(d0, d1, ..., dn)
+Return a sample (or samples) from the ¡°standard normal'' distribution.
+If positive, int\_like or int-convertible arguments are provided, randn generates an array of shape (d0, d1, ..., dn), filled with random floats sampled from a univariate ¡°normal'' (Gaussian) distribution of mean 0 and variance 1 (if any of the d[i] are floats, they are first converted to integers by truncation). A single float randomly sampled from the distribution is returned if no argument is provided.
+This is a convenience function. If you want an interface that takes a tuple as the first argument, use *numpy.random.standard_normal()* instead."
+numpy.random,randn(*dn),,"randn(d0, d1, ..., dn)
+Return a sample (or samples) from the ¡°standard normal'' distribution.
+If positive, int\_like or int-convertible arguments are provided, randn generates an array of shape (d0, d1, ..., dn), filled with random floats sampled from a univariate ¡°normal'' (Gaussian) distribution of mean 0 and variance 1 (if any of the d[i] are floats, they are first converted to integers by truncation). A single float randomly sampled from the distribution is returned if no argument is provided.
+This is a convenience function. If you want an interface that takes a tuple as the first argument, use *numpy.random.standard_normal()* instead."
+numpy.random,random(),size=None,"Return random floats in the half-open interval [0.0, 1.0).
+Results are from the ¡°continuous uniform'' distribution over the stated interval. To sample Unif[a, b), b > a:
+(b - a) * random_sample() + a"
+numpy.random,seed(),seed=None,"Seed the generator.
+This method is called when *RandomState* is initialized. It can be called again to re-seed the generator. For details, see *RandomState*."
+numpy.random,standard_cauchy(),size=None,"Draw samples from a standard Cauchy distribution with mode = 0.
+Also known as the Lorentz distribution."
+numpy.random,standard_exponential(),size=None,"Draw samples from the standard exponential distribution.
+standard_exponential is identical to the exponential distribution with a scale parameter of 1."
+numpy.random,standard_gamma(shape),size=None,"Draw samples from a standard Gamma distribution.
+Samples are drawn from a Gamma distribution with specified parameters, shape (sometimes designated ¡°k'') and scale=1."
+numpy.random,standard_normal(),size=None,"Draw samples from a standard Normal distribution (mean=0, stdev=1)."
+numpy.random,standard_t(df),size=None,"Draw samples from a standard Student's t distribution with df degrees of freedom.
+A special case of the hyperbolic distribution. As df gets large, the result resembles that of the standard normal distribution (standard_normal)."
+numpy.random,uniform(),"low=0.0, high=1.0, size=None","Draw samples from a uniform distribution.
+Samples are uniformly distributed over the half-open interval [low, high) (includes low, but excludes high). In other words, any value within the given interval is equally likely to be drawn by uniform."
+os,getpid(),,Return the current process id.
+os,getppid(),,"Return the parent¡¯s process id. When the parent process has exited, on Unix the id returned is the one of the init process (1), on Windows it is still the same id, which may be already reused by another process."
+os,os.cpu_count(),,"Return the number of CPUs in the system. Returns None if undetermined.
+This number is not equivalent to the number of CPUs the current process can use. The number of usable CPUs can be obtained with len(os.sched_getaffinity(0))."
+pandas,Categorical(values),"categories=None, ordered=False,
+fastpath=False","Represents a categorical variable in classic R / S-plus fashion.
+Categoricals can only take on only a limited, and usually fixed, number of possible values (categories). In contrast to statistical categorical variables, a Categorical might have an order, but numerical operations (additions, divisions, ¡­) are not possible.
+All values of the Categorical are either in categories or np.nan. Assigning values outside of categories will raise a ValueError. Order is defined by the order of the categories, not lexical order of the values.
+**values**
+list-like
+The values of the categorical. If categories are given, values not in categories will be replaced with NaN.
+**categories**
+Index-like (unique), optional
+The unique categories for this categorical. If not given, the categories are assumed to be the unique values of values."
+pandas,concat(objs),"axis=0, join='outer',
+join_axes=None, ignore_index=False,
+keys=None, levels=None,
+names=None, verify_integrity=False,
+copy=True","Concatenate pandas objects along a particular axis with optional set logic along the other axes.
+Can also add a layer of hierarchical indexing on the concatenation axis, which may be useful if the labels are the same (or overlapping) on the passed axis number.
+**objs**
+a sequence or mapping of Series, DataFrame, or Panel objects
+If a dict is passed, the sorted keys will be used as the keys argument, unless it is passed, in which case the values will be selected (see below). Any None objects will be dropped silently unless they are all None in which case a ValueError will be raised.
+**axis**
+{0/'index', 1/'columns'}, default 0
+The axis to concatenate along.
+**join**
+{'inner', 'outer'}, default 'outer'
+How to handle indexes on other axis(es).
+**join_axes**
+list of Index objects
+Specific indexes to use for the other n - 1 axes instead of performing inner/outer set logic.
+**keys**
+sequence, default None
+If multiple levels passed, should contain tuples. Construct hierarchical index using the passed keys as the outermost level."
+pandas,"cut(x, bins)","right=True, labels=None,
+retbins=False, precision=3,
+include_lowest=False","Return indices of half-open bins to which each value of x belongs.
+**x**
+array-like
+Input array to be binned. It has to be 1-dimensional.
+**bins**
+int, sequence of scalars, or IntervalIndex
+If bins is an int, it defines the number of equal-width bins in the range of x. However, in this case, the range of x is extended by .1% on each side to include the min or max values of x. If bins is a sequence it defines the bin edges allowing for non-uniform bin width. No extension of the range of x is done in this case."
+pandas,DataFrame(),"data=None, index=None, 
+columns=None, dtype=None,
+copy=False","Two-dimensional size-mutable, potentially heterogeneous tabular data structure with labeled axes (rows and columns). Arithmetic operations align on both row and column labels. Can be thought of as a dict-like container for Series objects. The primary pandas data structure"
+pandas,get_dummies(data),"prefix=None, prefix_sep='_',
+dummy_na=False, columns=None,
+sparse=False, drop_first=False","Convert categorical variable into dummy/indicator variables.
+**data**
+array-like, Series, or DataFrame"
+pandas,Index(data),"dtype, name,
+...","Immutable ndarray implementing an ordered, sliceable set. The basic object storing axis labels for all pandas objects.
+**data**
+array-like (1-dimensional)
+**dtype**
+NumPy dtype (default: object)
+**name**
+object
+Name to be stored in the index."
+pandas,isnull(obj),,"Detect missing values (NaN in numeric arrays, None/NaN in object arrays)"
+pandas,"merge(left, right)","how='inner', on=None,
+left_on=None, right_on=None,
+left_index=False, right_index=False,
+sort=False, suffixes=('_x', '_y'),
+copy=True, indicator=False","Merge DataFrame objects by performing a database-style join operation by columns or indexes.
+If joining columns on columns, the DataFrame indexes will be ignored. Otherwise if joining indexes on indexes or indexes on a column or columns, the index will be passed on.
+**how**
+{'left', 'right', 'outer', 'inner'}, default 'inner'
+left: use only keys from left frame, similar to a SQL left outer join; preserve key order.
+right: use only keys from right frame, similar to a SQL right outer join; preserve key order.
+outer: use union of keys from both frames, similar to a SQL full outer join; sort keys lexicographically.
+inner: use intersection of keys from both frames, similar to a SQL inner join; preserve the order of the left keys.
+**on**
+label or list
+Field names to join on. Must be found in both DataFrames. If on is None and not merging on indexes, then it merges on the intersection of the columns by default.
+**left_on**
+label or list, or array-like
+Field names to join on in left DataFrame. Can be a vector or list of vectors of the length of the DataFrame to use a particular vector as the join key instead of columns.
+**right_on**
+label or list, or array-like
+Field names to join on in right DataFrame or vector/list of vectors per left_on docs
+**suffixes**
+2-length sequence (tuple, list, ¡­)
+Suffix to apply to overlapping column names in the left and right side, respectively
+**left_index**
+boolean, default False
+Use the index from the left DataFrame as the join key(s). If it is a MultiIndex, the number of keys in the other DataFrame (either the index or a number of columns) must match the number of levels.
+**right_index**
+boolean, default False
+Use the index from the right DataFrame as the join key. Same caveats as left_index."
+pandas,"qcut(x, q)","labels=None, retbins=False,
+precision=3, duplicates='raise'","Quantile-based discretization function. Discretize variable into equal-sized buckets based on rank or based on sample quantiles. For example 1000 values for 10 quantiles would produce a Categorical object indicating quantile membership for each data point.
+**x**
+ndarray or Series
+**q**
+integer or array of quantiles
+Number of quantiles. 10 for deciles, 4 for quartiles, etc. Alternately array of quantiles, e.g. [0, .25, .5, .75, 1.] for quartiles."
+pandas,read_csv(filepath_or_buffer),"filepath_or_buffer, sep, delimiter
+header, names, index_col, skiprows
+na_values, encoding, decimal
+nrows, chunksize, keep_default_na
+","Read CSV (comma-separated) file into DataFrame.
+**filepath_or_buffer**
+str, pathlib.Path, py._path.local.LocalPath or any object with a read() method (such as a file handle or StringIO)
+The string could be a URL.
+**sep**
+str, default ','
+Delimiter to use.
+**delimiter**
+str, default None
+Alternative argument name for sep.
+**header**
+int or list of ints, default 'infer'
+Row number(s) to use as the column names, and the start of the data. Default behavior is: as if set to 0 if no names passed, otherwise None.
+-- Use header=None is there is no header.
+**names**
+array-like, default None
+List of column names to use. If file contains no header row, then you should explicitly pass header=None.
+**index_col**
+int or sequence or False, default None
+Column to use as the row labels of the DataFrame. If a sequence is given, a MultiIndex is used.
+**skiprows**
+list-like or integer or callable, default None
+Line numbers to skip (0-indexed) or number of lines to skip (int) at the start of the file.
+**na_values**
+scalar, str, list-like, or dict, default None
+Additional strings to recognize as NA/NaN. If dict passed, specific per-column NA values.
+**encoding**
+str, default None
+Encoding to use for UTF when reading/writing (ex. 'utf-8'). List of Python standard encodings
+**decimal**
+str, default '.'
+Character to recognize as decimal point (e.g. use ',' for European data).
+**nrows**
+int, default None
+Number of rows of file to read. Useful for reading pieces of large files
+**chunksize**
+int, default None
+Return TextFileReader object for iteration. See the IO Tools docs for more information on iterator and chunksize.
+**keep_default_na**
+bool, default True
+If na_values are specified and keep_default_na is False the default NaN values are overridden, otherwise they¡¯re appended to.
+"
+pandas,read_excel(io),"sheet_name=0, header=0,
+skiprows=None, ...,
+****kwargs",Read an Excel table into a pandas DataFrame.
+pandas,"read_sql(sql, con)","index_col=None, coerce_float=True
+params=None, parse_dates=None
+columns=None, chunksize=None","Read SQL query or database table into a DataFrame.
+# chunksize available! Very fast!"
+pandas,read_table(filepath_or_buffer),"sep='\t', delimiter=None,
+header='infer', names=None,
+index_col=None, decimal=b'.',
+quotechar='""', quoting=0,
+encoding=None, doublequote=True","Read general delimited file into DataFrame.
+Also supports optionally iterating or breaking of the file into chunks."
+pandas,Series(),"data=None, index=None, dtype=None,
+name=None, copy=False, fastpath=False","One-dimensional ndarray with axis labels (including time series).
+Labels need not be unique but must be a hashable type. The object supports both integer- and label-based indexing and provides a host of methods for performing operations involving the index. Statistical methods from ndarray have been overridden to automatically exclude missing data (currently represented as NaN).
+Operations between Series (+, -, /, , *) align values based on their associated index values¨C they need not be the same length. The result index will be the sorted union of the two indexes.
+**dtype**
+numpy.dtype or None
+If None, dtype will be inferred.
+-- Use dtype=""category"", you can create a categorical data: pandas.Categorical."
+pandas,value_counts(),"normalize=False, sort=True,
+ascending=False, bins=None,
+dropna=True","Returns object containing counts of unique values.
+The resulting object will be in descending order so that the first element is the most frequently-occurring element. Excludes NA values by default."
+pandas.DataFrame*,.columns,,# Index object of the columns.
+pandas.DataFrame*,.dtypes,,Return the dtypes in this object.
+pandas.DataFrame*,.T,,Transpose index and columns.
+pandas.DataFrame*,.values,,# the underlying data of DataFrame
+pandas.DataFrame*,add(other),"axis='columns', level=None,
+fill_value=None","Addition of dataframe and other, element-wise (binary operator add).
+Equivalent to dataframe + other, but with support to substitute a fill_value for missing data in one of the inputs."
+pandas.DataFrame*,aggregate(func),"axis=0, *args, **kwargs","Aggregate using callable, string, dict, or list of string/callables."
+pandas.DataFrame*,append(other),"ignore_index=False,
+verify_integrity=False","Append rows of other to the end of this frame, returning a new object. Columns not in this frame are added as new columns."
+pandas.DataFrame*,apply(func),"axis=0, broadcast=False, raw=False,
+reduce=None, args=(), **kwds","Applies function along input axis of DataFrame.
+Objects passed to functions are Series objects having index either the DataFrame's index (axis=0) or the columns (axis=1). Return type depends on whether passed function aggregates, or the reduce argument if the DataFrame is empty.
+**func**
+function
+Function to apply to each column/row
+**axis**
+{0 or 'index', 1 or 'columns'}, default 0
+0 or 'index': apply function to each column.
+1 or 'columns': apply function to each row.
+**args**
+tuple
+Positional arguments to pass to function in addition to the array/series."
+pandas.DataFrame*,applymap(func),,"Apply a function to a DataFrame that is intended to operate elementwise, i.e. like doing map(func, series) for each series in the DataFrame.
+**func**
+function
+Python function, returns a single value from a single value."
+pandas.DataFrame*,combine_first(other),,Combine two DataFrame objects and default to non-null values in frame calling the method. Result index columns will be the union of the respective indexes and columns.
+pandas.DataFrame*,copy(),deep=True,Make a copy of this objects data.
+pandas.DataFrame*,corr(),"method='pearson', min_periods=1","Compute pairwise correlation of columns, excluding NA/null values"
+pandas.DataFrame*,corrwith(other),"axis=0, drop=False",Compute pairwise correlation between rows or columns of two DataFrame objects.
+pandas.DataFrame*,count(),"axis=0, level=None,
+numeric_only=False",Return Series with number of non-NA/null observations over requested axis. Works with non-floating point data as well (detects NaN and None).
+pandas.DataFrame*,cov(),min_periods=None,"Compute pairwise covariance of columns, excluding NA/null values."
+pandas.DataFrame*,cummax(),"axis=None, skipna=True,
+*args, **kwargs",Return cumulative max over requested axis.
+pandas.DataFrame*,cummin(),"axis=None, skipna=True,
+*args, **kwargs",Return cumulative minimum over requested axis.
+pandas.DataFrame*,cumprod(),"axis=None, skipna=True,
+*args, **kwargs",Return cumulative product over requested axis.
+pandas.DataFrame*,cumsum(),"axis=None, skipna=True,
+*args, **kwargs",Return cumulative sum over requested axis.
+pandas.DataFrame*,describe(),"percentiles=None, include=None,
+exclude=None","Generates descriptive statistics that summarize the central tendency, dispersion and shape of a dataset's distribution, excluding NaN values.
+Analyzes both numeric and object series, as well as DataFrame column sets of mixed data types. The output will vary depending on what is provided. Refer to the notes below for more detail."
+pandas.DataFrame*,diff(),"periods=1, axis=0",1st discrete difference of object.
+pandas.DataFrame*,div(other),"axis='columns', level=None,
+fill_value=None","Floating division of dataframe and other, element-wise (binary operator truediv).
+Equivalent to dataframe / other, but with support to substitute a fill_value for missing data in one of the inputs."
+pandas.DataFrame*,drop(labels),"axis=0, level=None,
+inplace=False, errors='raise'",Return new object with labels in requested axis removed.
+pandas.DataFrame*,drop_duplicates(),"subset=None, keep='first',
+inplace=False","Return DataFrame with duplicate rows removed, optionally only considering certain columns."
+pandas.DataFrame*,dropna(),"axis=0, how='any',
+thresh=None, subset=None,
+inplace=False",Return object with labels on given axis omitted where alternately any or all of the data are missing.
+pandas.DataFrame*,duplicated(),"subset=None, keep='first'","Return boolean Series denoting duplicate rows, optionally only considering certain columns."
+pandas.DataFrame*,fillna(),"value=None, method=None,
+axis=None, inplace=False,
+limit=None, downcast=None,
+**kwargs","Fill NA/NaN values using the specified method.
+-- Use a dict as input, you can specialize every columns's filling value."
+pandas.DataFrame*,"get_value(index, col)",takeable=False,Quickly retrieve single value at passed column and index.
+pandas.DataFrame*,"groupby(by=None, level=None)","axis=0, as_index=True,
+sort=True, group_keys=True,
+squeeze=False, **kwargs","Group series using mapper (dict or key function, apply given function to group, return result as series) or by a series of columns.
+-- Return a GroupBy object.
+**by**
+mapping, function, str, or iterable
+Used to determine the groups for the groupby. If by is a function, it¡¯s called on each value of the object¡¯s index. If a dict or Series is passed, the Series or dict VALUES will be used to determine the groups (the Series¡¯ values are first aligned; see .align() method). If an ndarray is passed, the values are used as-is determine the groups. A str or list of strs may be passed to group by the columns in self.
+**axis**
+int, default 0"
+pandas.DataFrame*,head(),n=5,Returns first n rows.
+pandas.DataFrame*,iloc[],,# For indexing.
+pandas.DataFrame*,isin(values),,Return boolean DataFrame showing whether each element in the DataFrame is contained in values.
+pandas.DataFrame*,isnull(),,Return a boolean same-sized object indicating if the values are null.
+pandas.DataFrame*,iteritems(),,"Iterator over (column name, Series) pairs."
+pandas.DataFrame*,iterrows(),,"Iterate over DataFrame rows as (index, Series) pairs."
+pandas.DataFrame*,itertuples(),"index=True, name='Pandas'","Iterate over DataFrame rows as namedtuples, with index value as first element of the tuple."
+pandas.DataFrame*,ix[],,"A primarily label-location based indexer, with integer position fallback.
+.ix[] supports mixed integer and label based access. It is primarily label based, but will fall back to integer positional access unless the corresponding axis is of integer type.
+.ix is the most general indexer and will support any of the inputs in .loc and .iloc. .ix also supports floating point label schemes. .ix is exceptionally useful when dealing with mixed positional and label based hierachical indexes.
+However, when an axis is integer based, ONLY label based access and not positional access is supported. Thus, in such cases, it's usually better to be explicit and use .iloc or .loc."
+pandas.DataFrame*,join(other),"on=None, how='left',
+lsuffix='', rsuffix='',
+sort=False",Join columns with other DataFrame either on index or on a key column. Efficiently Join multiple DataFrame objects by index at once by passing a list.
+pandas.DataFrame*,kurt(),"axis=None, skipna=None,
+level=None, numeric_only=None,
+**kwargs","Return unbiased kurtosis over requested axis using Fisher's definition of kurtosis (kurtosis of normal == 0.0).
+Normalized by N-1."
+pandas.DataFrame*,loc[],,# For indexing.
+pandas.DataFrame*,mad(),"axis=None, skipna=None,
+level=None",Return the mean absolute deviation of the values for the requested axis.
+pandas.DataFrame*,max(),"axis=None, skipna=None,
+level=None, numeric_only=None,
+**kwargs",This method returns the maximum of the values in the object.
+pandas.DataFrame*,mean(),"axis=None, skipna=None,
+level=None, numeric_only=None,
+**kwargs",Return the mean of the values for the requested axis.
+pandas.DataFrame*,median(),"axis=None, skipna=None,
+level=None, numeric_only=None,
+**kwargs",Return the median of the values for the requested axis.
+pandas.DataFrame*,min(),"axis=None, skipna=None,
+level=None, numeric_only=None,
+**kwargs",This method returns the minimum of the values in the object.
+pandas.DataFrame*,mul(other),"axis='columns', level=None,
+fill_value=None","Multiplication of dataframe and other, element-wise (binary operator mul).
+Equivalent to dataframe * other, but with support to substitute a fill_value for missing data in one of the inputs."
+pandas.DataFrame*,notnull(),,Return a boolean same-sized object indicating if the values are not null.
+pandas.DataFrame*,pct_change(),"periods=1, fill_method='pad',
+limit=None, freq=None, **kwargs",Percent change over given number of periods.
+pandas.DataFrame*,"pivot(index, columns)",values=None,"Reshape data (produce a ¡°pivot'' table) based on column values. Uses unique values from index / columns to form axes of the resulting DataFrame.
+**index**
+string or object, optional
+Column name to use to make new frame's index. If None, uses existing index.
+**columns**
+string or object
+Column name to use to make new frame's columns.
+**values**
+string or object, optional
+Column name to use for populating new frame's values. If not specified, all remaining columns will be used and the result will have hierarchically indexed columns."
+pandas.DataFrame*,quantile(),"q=0.5, axis=0,
+numeric_only=True,
+interpolation='linear'","Return values at the given quantile over requested axis, a la numpy.percentile."
+pandas.DataFrame*,rank(),"axis=0, method='average',
+numeric_only=None, na_option='keep',
+ascending=True, pct=False",Compute numerical data ranks (1 through n) along axis. Equal values are assigned a rank that is the average of the ranks of those values.
+pandas.DataFrame*,reindex(),"index=None, columns=None, **kwargs","Conform DataFrame to new index with optional filling logic, placing NA/NaN in locations having no value in the previous index. A new object is produced unless the new index is equivalent to the current one and copy=False
+**index, columns**
+array-like, optional (can be specified in order, or as keywords)
+New labels / index to conform to. Preferably an Index object to avoid duplicating data.
+**copy**
+boolean, default True
+Return a new object, even if the passed indexes are the same
+**fill_value**
+scalar, default np.NaN
+Value to use for missing values. Defaults to NaN, but can be any ¡°compatible'' value."
+pandas.DataFrame*,rename(),"index=None, columns=None,
+**kwargs","Alter axes input function or functions. Function / dict values must be unique (1-to-1). Labels not contained in a dict / Series will be left as-is. Extra labels listed don¡¯t throw an error. Alternatively, change Series.name with a scalar value (Series only).
+**index, columns**
+scalar, list-like, dict-like or function, optional
+Scalar or list-like will alter the Series.name attribute, and raise on DataFrame or Panel. dict-like or functions are transformations to apply to that axis¡¯ values
+**copy**
+boolean, default True
+Also copy underlying data
+**inplace**
+boolean, default False
+Whether to return a new DataFrame. If True then value of copy is ignored.
+**level**
+int or level name, default None
+In case of a MultiIndex, only rename labels in the specified level."
+pandas.DataFrame*,"rename(index, columns)",**kwargs,"Alter axes input function or functions. Function / dict values must be unique (1-to-1). Labels not contained in a dict / Series will be left as-is. Extra labels listed don't throw an error. Alternatively, change Series.name with a scalar value (Series only).
+**index, columns**
+scalar, list-like, dict-like or function, optional
+Scalar or list-like will alter the Series.name attribute, and raise on DataFrame or Panel. dict-like or functions are transformations to apply to that axis' values."
+pandas.DataFrame*,replace(),"to_replace=None, value=None,
+inplace=False, limit=None,
+regex=False, method='pad',
+axis=None",Replace values given in 'to_replace' with 'value'.
+pandas.DataFrame*,reset_index(),"level=None, drop=False,
+inplace=False, col_level=0,
+col_fill=''","For DataFrame with multi-level index, return new DataFrame with labeling information in the columns under the index names, defaulting to 'level_0', 'level_1', etc. if any are None. For a standard index, the index name will be used (if set), otherwise a default 'index' or 'level_0' (if 'index' is already taken) will be used."
+pandas.DataFrame*,set_index(keys),"drop=True, append=False,
+inplace=False, verify_integrity=False",Set the DataFrame index (row labels) using one or more existing columns. By default yields a new object.
+pandas.DataFrame*,"set_value(index, col, value)",takeable=False,Put single value at passed column and index.
+pandas.DataFrame*,skew(),"axis=None, skipna=None,
+level=None, numeric_only=None,
+**kwargs",Return unbiased skew over requested axis Normalized by N-1.
+pandas.DataFrame*,sort_index(),"axis=0, level=None,
+ascending=True, inplace=False,
+kind='quicksort', na_position='last',
+sort_remaining=True, by=None",Sort object by labels (along an axis).
+pandas.DataFrame*,sort_values(by),"axis=0, ascending=True, inplace=False,
+kind='quicksort', na_position='last'",Sort by the values along either axis.
+pandas.DataFrame*,stack(),"level=-1, dropna=True","Pivot a level of the (possibly hierarchical) column labels, returning a DataFrame (or Series in the case of an object with a single level of column labels) having a hierarchical index with a new inner-most level of row labels. The level involved will automatically get sorted."
+pandas.DataFrame*,std(),"axis=None, skipna=None,
+level=None, ddof=1,
+numeric_only=None, **kwargs","Return sample standard deviation over requested axis.
+Normalized by N-1 by default. This can be changed using the ddof argument."
+pandas.DataFrame*,sub(other),"axis='columns', level=None,
+fill_value=None","Subtraction of dataframe and other, element-wise (binary operator sub).
+Equivalent to dataframe - other, but with support to substitute a fill_value for missing data in one of the inputs."
+pandas.DataFrame*,sum(),"axis=None, skipna=None
+level=None, numeric_only=None
+**kwargs","Return the sum of the values for the requested axis
+**axis**
+{index (0), columns (1)}
+**skipna**
+boolean, default True
+Exclude NA/null values. If an entire row/column is NA or empty, the result will be NA
+**level**
+int or level name, default None
+If the axis is a MultiIndex (hierarchical), count along a particular level, collapsing into a Series
+**numeric_only**
+boolean, default None
+Include only float, int, boolean columns. If None, will attempt to use everything, then use only numeric data. Not implemented for Series."
+pandas.DataFrame*,swaplevel(),"i=-2, j=-1,
+axis=0",Swap levels i and j in a MultiIndex on a particular axis.
+pandas.DataFrame*,tail(),n=5,Returns last n rows.
+pandas.DataFrame*,take(indices),"axis=0, convert=True,
+is_copy=True, **kwargs",Analogous to ndarray.take.
+pandas.DataFrame*,to_csv(path_or_buf=None),"path_or_buf, sep=', ',
+na_rep='', columns=None,
+header=True, index=True,
+encoding=None, quoting=None,
+quotechar='""',  date_format=None,
+doublequote=True, decimal='.'","Write DataFrame to a comma-separated values (csv) file.
+**path_or_buf**
+string or file handle, default None
+File path or object, if None is provided the result is returned as a string.
+**sep**
+character, default ','
+Field delimiter for the output file.
+**na_rep**
+string, default ''
+Missing data representation.
+**columns**
+sequence, optional
+Columns to write.
+**header**
+boolean or list of string, default True
+Write out column names. If a list of string is given it is assumed to be aliases for the column names.
+**index**
+boolean, default True
+Write row names (index)."
+pandas.DataFrame*,var(),"axis=None, skipna=None,
+level=None, ddof=1,
+numeric_only=None, **kwargs","Return unbiased variance over requested axis.
+Normalized by N-1 by default. This can be changed using the ddof argument."
+pandas.DataFrame*,xs(key),"axis=0, level=None, drop_level=True",Returns a cross-section (row(s) or column(s)) from the Series/DataFrame. Defaults to cross-section on the rows (axis=0).
+pandas.Index*,.is_unique,,"# Return a bool value, indicate if the *Index* are unique."
+pandas.Index*,.name,,# the name of the Index.
+pandas.Index*,.names,,# the name of the Index.
+pandas.Index*,sort_values(),"return_indexer=False, ascending=True",Return sorted copy of Index.
+pandas.Index*,tolist(),,Return a list of the Index values.
+pandas.Index*,unique(),,"Return unique values in the object. Uniques are returned in order of appearance, this does NOT sort. Hash table-based unique."
+pandas.MultiIndex*,.labels,,# return the underlying interger of levels of the index.
+pandas.MultiIndex*,.name,,# the name of the Index.
+pandas.MultiIndex*,.names,,Names of levels in MultiIndex.
+pandas.MultiIndex*,from_arrays(arrays),"sortorder=None, names=None",Convert arrays to MultiIndex.
+pandas.Series*,.index,,Return the index of the Series.
+pandas.Series*,.is_unique,,Return boolean if values in the object are unique.
+pandas.Series*,.shape,,Return a tuple of the shape of the underlying data.
+pandas.Series*,.size,,Return the number of elements in the underlying data.
+pandas.Series*,.values,,Return Series as ndarray or ndarray-like.
+pandas.Series*,add(other),"level=None, fill_value=None, 
+axis=0","Addition of series and other, element-wise (binary operator add).
+Equivalent to series + other, but with support to substitute a fill_value for missing data in one of the inputs."
+pandas.Series*,all(),"axis=None, bool_only=None,
+skipna=None, level=None,
+**kwargs",Return whether all elements are True over requested axis.
+pandas.Series*,append(to_append),"ignore_index=False,
+verify_integrity=False",Concatenate two or more Series.
+pandas.Series*,apply(func),"convert_dtype=True, args=(), **kwds","Invoke function on values of Series. Can be ufunc (a NumPy function that applies to the entire Series) or a Python function that only works on single values.
+**func**
+function
+**convert_dtype**
+boolean, default True
+Try to find better dtype for elementwise function results. If False, leave as dtype=object.
+**args**
+tuple
+Positional arguments to pass to function in addition to the value."
+pandas.Series*,astype(dtype),"copy=True, errors='raise',
+**kwargs","Cast object to input numpy.dtype Return a copy when copy = True (be really careful with this!).
+**dtype**
+data type, or dict of column name -> data type
+Use a numpy.dtype or Python type to cast entire pandas object to the same type. Alternatively, use {col: dtype, ¡­}, where col is a column label and dtype is a numpy.dtype or Python type to cast one or more of the DataFrame's columns to column-specific types.
+-- Use dtype=""category"", you can change the pandas.Series into a categorical data: pandas.Categorical."
+pandas.Series*,combine_first(other),,"Combine Series values, choosing the calling Series's values first. Result index will be the union of the two indexes."
+pandas.Series*,copy(),deep=True,Make a copy of this objects data.
+pandas.Series*,corr(other),"method='pearson',
+min_periods=None","Compute correlation with other Series, excluding missing values."
+pandas.Series*,count(),level=None,Return number of non-NA/null observations in the Series.
+pandas.Series*,cov(other),min_periods=None,"Compute covariance with Series, excluding missing values."
+pandas.Series*,cummax(),"axis=None, skipna=True,
+*args, **kwargs",Return cumulative max over requested axis.
+pandas.Series*,cummin(),"axis=None, skipna=True,
+*args, **kwargs",Return cumulative minimum over requested axis.
+pandas.Series*,cumprod(),"axis=None, skipna=True,
+*args, **kwargs",Return cumulative product over requested axis.
+pandas.Series*,cumsum(),"axis=None, skipna=True,
+*args, **kwargs",Return cumulative sum over requested axis.
+pandas.Series*,describe(),"percentiles=None, include=None,
+exclude=None","Generates descriptive statistics that summarize the central tendency, dispersion and shape of a dataset's distribution, excluding NaN values.
+Analyzes both numeric and object series, as well as DataFrame column sets of mixed data types. The output will vary depending on what is provided. Refer to the notes below for more detail."
+pandas.Series*,diff(),periods=1,1st discrete difference of object.
+pandas.Series*,div(other),"level=None, fill_value=None, 
+axis=0","Floating division of series and other, element-wise (binary operator truediv).
+Equivalent to series / other, but with support to substitute a fill_value for missing data in one of the inputs."
+pandas.Series*,drop(labels),"axis=0, level=None,
+inplace=False, errors='raise'",Return new object with labels in requested axis removed.
+pandas.Series*,dropna(),"axis=0, inplace=False,
+**kwargs",Return Series without null values.
+pandas.Series*,fillna(),"value=None, method=None,
+axis=None, inplace=False,
+limit=None, downcast=None,
+**kwargs",Fill NA/NaN values using the specified method.
+pandas.Series*,head(),n=5,# Return first n items.
+pandas.Series*,idxmax(),"axis=None, skipna=True,
+*args, **kwargs",Index of first occurrence of maximum of values.
+pandas.Series*,idxmin(),"axis=None, skipna=True,
+*args, **kwargs",Index of first occurrence of minimum of values.
+pandas.Series*,iloc[],,# For indexing.
+pandas.Series*,isin(values),,Return a boolean Series showing whether each element in the Series is exactly contained in the passed sequence of values.
+pandas.Series*,isnull(),,Return a boolean same-sized object indicating if the values are null.
+pandas.Series*,kurt(),"axis=None, skipna=None,
+level=None, numeric_only=None,
+**kwargs","Return unbiased kurtosis over requested axis using Fisher's definition of kurtosis (kurtosis of normal == 0.0).
+Normalized by N-1"
+pandas.Series*,loc[],,# For indexing.
+pandas.Series*,mad(),"axis=None, skipna=None,
+level=None",Return the mean absolute deviation of the values for the requested axis.
+pandas.Series*,map(arg),na_action=None,"Map values of Series using input correspondence (which can be a dict, Series, or function).
+**arg**
+function, dict, or Series
+**na_action**
+{None, 'ignore'}
+If 'ignore', propagate NA values, without passing them to the mapping function."
+pandas.Series*,max(),"axis=None, skipna=None,
+level=None, numeric_only=None,
+**kwargs",This method returns the maximum of the values in the object.
+pandas.Series*,mean(),"axis=None, skipna=None,
+level=None, numeric_only=None,
+**kwargs",Return the mean of the values for the requested axis.
+pandas.Series*,median(),"axis=None, skipna=None,
+level=None, numeric_only=None,
+**kwargs",Return the median of the values for the requested axis.
+pandas.Series*,min(),"axis=None, skipna=None,
+level=None, numeric_only=None,
+**kwargs",This method returns the minimum of the values in the object.
+pandas.Series*,mul(other),"level=None, fill_value=None, 
+axis=0","Multiplication of series and other, element-wise (binary operator mul).
+Equivalent to series * other, but with support to substitute a fill_value for missing data in one of the inputs."
+pandas.Series*,notnull(),,Return a boolean same-sized object indicating if the values are not null.
+pandas.Series*,pct_change(),"periods=1, fill_method='pad',
+limit=None, freq=None, **kwargs",Percent change over given number of periods.
+pandas.Series*,quantile(),"q=0.5, interpolation='linear'","Return value at the given quantile, a la numpy.percentile."
+pandas.Series*,rank(),"axis=0, method='average',
+numeric_only=None, na_option='keep',
+ascending=True, pct=False",Compute numerical data ranks (1 through n) along axis. Equal values are assigned a rank that is the average of the ranks of those values.
+pandas.Series*,reindex(),"index=None,**kwargs","Conform Series to new index with optional filling logic, placing NA/NaN in locations having no value in the previous index. A new object is produced unless the new index is equivalent to the current one and copy=False.
+**index**
+array-like, optional (can be specified in order, or as keywords) 
+New labels / index to conform to. Preferably an Index object to avoid duplicating data.
+**copy**
+boolean, default True
+Return a new object, even if the passed indexes are the same.
+**fill_value**
+scalar, default np.NaN
+Value to use for missing values. Defaults to NaN, but can be any ¡°compatible'' value."
+pandas.Series*,replace(),"to_replace=None, value=None,
+inplace=False, limit=None,
+regex=False, method='pad',
+axis=None",Replace values given in 'to_replace' with 'value'.
+pandas.Series*,round(),"decimals=0, *args, **kwargs",Round each value in a Series to the given number of decimals.
+pandas.Series*,skew(),"axis=None, skipna=None,
+level=None, numeric_only=None,
+**kwargs",Return unbiased skew over requested axis Normalized by N-1.
+pandas.Series*,std(),"axis=None, skipna=None,
+level=None, ddof=1,
+numeric_only=None, **kwargs","Return sample standard deviation over requested axis.
+Normalized by N-1 by default. This can be changed using the ddof argument."
+pandas.Series*,sub(other),"level=None, fill_value=None, 
+axis=0","Subtraction of series and other, element-wise (binary operator sub).
+Equivalent to series - other, but with support to substitute a fill_value for missing data in one of the inputs."
+pandas.Series*,sum(),"axis=None, skipna=None
+level=None, numeric_only=None
+**kwargs","Return the sum of the values for the requested axis.
+**axis**
+{index (0)}
+**skipna**
+boolean, default True
+Exclude NA/null values. If an entire row/column is NA or empty, the result will be NA
+**level**
+int or level name, default None
+If the axis is a MultiIndex (hierarchical), count along a particular level, collapsing into a scalar
+**numeric_only**
+boolean, default None
+Include only float, int, boolean columns. If None, will attempt to use everything, then use only numeric data. Not implemented for Series."
+pandas.Series*,tail(),n=5,# Returns last n items.
+pandas.Series*,to_csv(),"path=None, index=True, sep=', ',
+na_rep='', float_format=None,
+header=False, index_label=None,
+mode='w', encoding=None,
+date_format=None, decimal='.'",Write Series to a comma-separated values (csv) file.
+pandas.Series*,to_dict(),,Convert Series to {label -> value} dict or dict-like object.
+pandas.Series*,to_frame(),name=None,Convert Series to DataFrame.
+pandas.Series*,tolist(),,Convert Series to a nested list.
+pandas.Series*,unstack(),"level=-1, fill_value=None","Unstack, a.k.a. pivot, Series with MultiIndex to produce DataFrame. The level involved will automatically get sorted."
+pandas.Series*,value_counts(),"normalize=False, sort=True,
+ascending=False, bins=None,
+dropna=True","Returns object containing counts of unique values.
+The resulting object will be in descending order so that the first element is the most frequently-occurring element. Excludes NA values by default."
+pandas.Series*,var(),"axis=None, skipna=None,
+level=None, ddof=1,
+numeric_only=None, **kwargs","Return unbiased variance over requested axis.
+Normalized by N-1 by default. This can be changed using the ddof argument."
+pip,get_installed_distributions(),,Return a list of installed Distribution objects.
+pip.Distribution*,project_name,,# Return the packages name of the Distribution object.
+py2neo,Graph(password),"bolt=None, user='neo4j'","The `Graph` class represents a Neo4j graph database. Connection details are provided using URIs and/or individual settings. 
+**bolt**
+bool, ``None``
+Use Bolt* protocol (`None` means autodetect).
+**user**
+str
+User to authenticate as.
+**password**
+str
+Password to use for authentication."
+py2neo,"Node(Relatable, Entity)",,"A node is a fundamental unit of data storage within a property graph that may optionally be connected, via relationships, to other nodes.
+All positional arguments passed to the constructor are interpreted as labels and all keyword arguments as properties
+**positional arguments**
+**keyword arguments**"
+py2neo,NodeSelector(Graph),,"A :py:class:`.NodeSelector` can be used to locate nodes that fulfil a specific set of criteria. Typically, a single node can be identified passing a specific label and property key-value pair.
+However, any number of labels and any condition supported by the Cypher `WHERE` clause is allowed."
+py2neo,Relationship(Entity),,"A relationship represents a typed connection between a pair of nodes.
+The positional arguments passed to the constructor identify the nodes to relate and the type of the relationship. Keyword arguments describe the properties of the relationship."
+py2neo,Subgraph(),"nodes=None, relationships=None","Arbitrary, unordered collection of nodes and relationships.
+# You can't create a empty Subgraph, must pass a nodes, or relationships."
+py2neo,Walkable(Subgraph),,A subgraph with added traversal information.
+py2neo.Graph*,create(subgraph),,"Run a :meth:`.Transaction.create` operation within an `autocommit` :class:`.Transaction`.
+:param subgraph: a :class:`.Node`, :class:`.Relationship` or other :class:`.Subgraph`"
+py2neo.Graph*,push(subgraph),,"Push data from one or more entities to their remote counterparts.
+**subgraph**
+the collection of nodes and relationships to push."
+py2neo.NodeSelection*,where(),"conditions, properties","Create a new selection based on this selection. The criteria specified for refining the selection consist of conditions and properties. Conditions are individual Cypher expressions that would be found in a `WHERE` clause; properties are used as exact matches for property values.
+**conditions**
+Cypher expressions to add to the selection `WHERE` clause
+**param properties**
+exact property match keys and values
+**return**
+refined selection object"
+py2neo.NodeSelector*,select(),"labels, properties","Describe a basic node selection using labels and property equality.
+**labels**
+node labels to match.
+**param properties**
+set of property keys and values to match.
+**return**
+pyclass: `.NodeSelection` instance."
+py2neo.Relationship*,type(),,The type of this relationship.
+py2neo.Subgraph*,keys(),,Set of all property keys.
+py2neo.Subgraph*,labels(),,Set of all node labels.
+py2neo.Subgraph*,nodes(),,Set of all nodes.
+py2neo.Subgraph*,relationships(),,Set of all relationships.
+py2neo.Subgraph*,types(),,Set of all relationship types.
+py2neo.Walkable*,end_node(),,The last node encountered on a :func:`.walk` of this object.
+py2neo.Walkable*,nodes(),,The sequence of nodes over which a :func:`.walk` of this object will traverse.
+py2neo.Walkable*,relationships(),,The sequence of relationships over which a :func:`.walk` of this object will traverse.
+py2neo.Walkable*,start_node(),,The first node encountered on a :func:`.walk` of this object.
+rdflib,BNode(),,"# [from wiki] In RDF, a blank node (also called bnode) is a node in an RDF graph representing a resource for which a URI or literal is not given.[1] The resource represented by a blank node is also called an anonymous resource. According to the RDF standard a blank node can only be used as subject or object of an RDF triple."
+rdflib,Graph(),,An RDF Graph.
+rdflib.Graph*,add(xxx_todo_changeme),,Add a triple with self as context.
+rdflib.Graph*,parse(),,Parse source adding the resulting triples to the Graph.
+rdflib.Graph*,serialize(),"destination=None, format=""xml"",
+base=None, encoding=None, **args",Serialize the Graph to destination.
+rdflib.Graph*,subjects(),"predicate=None, object=None",A generator of subjects with the given predicate and object.
+re.RegexObject*,findall(string),"[pos[, endpos]]","Similar to the findall() function, using the compiled pattern, but also accepts optional pos and endpos parameters that limit the search region like for match()."
+requests,post(url),"data=None, json=None, **kwargs","Sends a POST request.
+**url**
+URL for the new :class:`Request` object.
+**data**
+(optional) Dictionary (will be form-encoded), bytes, or file-like object to send in the body of the :class:`Request`.
+**json**
+(optional) json data to send in the body of the :class:`Request`.
+**\*\*kwargs**
+Optional arguments that ``request`` takes.
+**return**
+`Response <Response>` object"
+scipy.cluster.hierarchy,linkage(y),"method='single',
+metric='euclidean'","Performs hierarchical/agglomerative clustering.
+The input y may be either a 1d compressed distance matrix or a 2d array of observation vectors.
+If y is a 1d compressed distance matrix, then y must be a (n2)(n2) sized vector where n is the number of original observations paired in the distance matrix. The behavior of this function is very similar to the MATLAB linkage function.
+A (n 1)(n 1) by 4 matrix Z is returned. At the ii-th iteration, clusters with indices Z[i, 0] and Z[i, 1] are combined to form cluster n+in+i. A cluster with an index less than nn corresponds to one of the nn original observations. The distance between clusters Z[i, 0] and Z[i, 1] is given by Z[i, 2]. The fourth value Z[i, 3] represents the number of original observations in the newly formed cluster.
+**y**
+ndarray
+A condensed distance matrix. A condensed distance matrix is a flat array containing the upper triangular of the distance matrix. This is the form that pdist returns. Alternatively, a collection of mm observation vectors in nn dimensions may be passed as an mm by nn array. All elements of the condensed distance matrix must be finite, i.e. no NaNs or infs.
+**method**
+str, optional
+The linkage algorithm to use. See the Linkage Methods section below for full descriptions.
+**metric**
+str or function, optional
+The distance metric to use in the case that y is a collection of observation vectors; ignored otherwise. See the pdist function for a list of valid distance metrics. A custom distance function can also be used.
+**return**
+Z <ndarray>
+The hierarchical clustering encoded as a linkage matrix."
+scipy.optimize,"curve_fit(f, xdata, ydata)","p0=None, method=None","Use non-linear least squares to fit a function, f, to data.
+Assumes ``ydata = f(xdata, *params) + eps``
+
+**f**
+callable
+The model function, f(x, ...).  It must take the independent variable as the first argument and the parameters to fit as separate remaining arguments.
+
+**xdata**
+An M-length sequence or an (k,M)-shaped array for functions with k predictors
+The independent variable where the data is measured.
+
+**ydata**
+M-length sequence
+The dependent data --- nominally f(xdata, ...)
+
+**method**
+{'lm', 'trf', 'dogbox'}, optional
+Method to use for optimization.  See `least_squares` for more details.
+Default is 'lm' for unconstrained problems and 'trf' if `bounds` are provided. The method 'lm' won't work when the number of observations is less than the number of variables, use 'trf' or 'dogbox' in this case.
+
+**kwargs**
+Keyword arguments passed to `leastsq` for ``method='lm'`` or `least_squares` otherwise.
+
+
+**Returns**
+popt : array
+Optimal values for the parameters so that the sum of the squared residuals of ``f(xdata, *popt) - ydata`` is minimized
+
+pcov : 2d array
+The estimated covariance of popt. The diagonals provide the variance of the parameter estimate. To compute one standard deviation errors on the parameters use ``perr = np.sqrt(np.diag(pcov))``.
+"
+scipy.optimize,"leastsq(func, x0, args=())",,"Minimize the sum of squares of a set of equations.
+
+**func**
+callable
+should take at least one (possibly length N vector) argument and returns M floating point numbers. It must not return NaNs or fitting might fail.
+
+**x0**
+ndarray
+The starting estimate for the minimization.
+
+**args**
+tuple, optional
+Any extra arguments to func are placed in this tuple."
+scipy.spatial.distance,"cdist(XA, XB)","metric='euclidean', p=None,
+V=None, VI=None, w=None","Computes distance between each pair of the two collections of inputs.
+See Notes for common calling conventions.
+**XA**
+ndarray
+An mAmA by nn array of mAmA original observations in an nn-dimensional space. Inputs are converted to float type.
+**XB**
+ndarray
+An mBmB by nn array of mBmB original observations in an nn-dimensional space. Inputs are converted to float type.
+**metric**
+str or callable, optional
+The distance metric to use. 
+**Returns**
+Y <ndarray>
+A mAmA by mBmB distance matrix is returned. For each ii and jj, the metric dist(u=XA[i], v=XB[j]) is computed and stored in the ijij th entry.
+**Raises**
+ValueError
+An exception is thrown if XA and XB do not have the same number of columns."
+scipy.spatial.distance,pdist(X),"metric='euclidean', p=None,
+w=None, V=None, VI=None","Pairwise distances between observations in n-dimensional space.
+See Notes for common calling conventions.
+**X**
+ndarray
+An m by n array of m original observations in an n-dimensional space.
+**metric**
+str or function, optional
+The distance metric to use. 
+**Returns**
+Y <ndarray>
+Returns a condensed distance matrix Y. For each ii and jj (where i<j<mi<j<m),where m is the number of original observations. The metric dist(u=X[i], v=X[j]) is computed and stored in entry ij."
+scipy.special,"comb(N, k)","exact=False, repetition=False","The number of combinations of N things taken k at a time.
+This is often expressed as ""N choose k""."
+scipy.special,"perm(N, k)",exact=False,"Permutations of N things taken k at a time, i.e., k-permutations of N.
+It's also known as ""partial permutations""."
+scipy.stats,chisquare(f_obs),"f_exp=None, ddof=0,
+axis=0","Calculates a one-way chi square test.
+The chi square test tests the null hypothesis that the categorical data has the given frequencies.
+**f_obs**
+array_like
+Observed frequencies in each category.
+**f_exp**
+array_like, optional
+Expected frequencies in each category. By default the categories are assumed to be equally likely."
+scipy.stats,f_oneway(*args),,"Performs a 1-way ANOVA.
+The one-way ANOVA tests the null hypothesis that two or more groups have the same population mean. The test is applied to samples from two or more groups, possibly with differing sizes.
+**sample1, sample2, ...**
+array_like
+The sample measurements for each group.
+**NOTE**
+The ANOVA test has important assumptions that must be satisfied in order for the associated p-value to be valid.
+1. The samples are independent.
+2. Each sample is from a normally distributed population.
+3. The population standard deviations of the groups are all equal. This property is known as homoscedasticity.
+If these assumptions are not true for a given set of data, it may still be possible to use the Kruskal-Wallis H-test (scipy.stats.kruskal) although with some loss of power."
+scipy.stats,gaussian_kde(dataset),bw_method=None,"Representation of a kernel-density estimate using Gaussian kernels.
+Kernel density estimation is a way to estimate the probability density function (PDF) of a random variable in a non-parametric way. `gaussian_kde` works for both uni-variate and multi-variate data. It includes automatic bandwidth determination.  The estimation works best for a unimodal distribution; bimodal or multi-modal distributions tend to be oversmoothed.
+-- return a gaussian_kde object which is a Module.
+**dataset**
+array_like
+Datapoints to estimate from. In case of univariate data this is a 1-D array, otherwise a 2-D array with shape (# of dims, # of data).
+**bw_method**
+str, scalar or callable, optional
+The method used to calculate the estimator bandwidth. This can be 'scott', 'silverman', a scalar constant or a callable.  If a scalar, this will be used directly as `kde.factor`. If a callable, it should take a `gaussian_kde` instance as only parameter and return a scalar. If None (default), 'scott' is used.  See Notes for more details."
+seaborn,kdeplot(data),"data2=None, shade=False,
+vertical=False","Fit and plot a univariate or bivariate kernel density estimate.
+**data**
+1d array-like
+Input data.
+**data2**
+1d array-like, optional
+Second input data. If present, a bivariate KDE will be estimated.
+**shade**
+bool, optional
+If True, shade in the area under the KDE curve (or draw with filledcontours when data is bivariate).
+**vertical**
+bool, optional
+If True, density is on x-axis."
+sklearn.cluster,AgglomerativeClustering(),"n_clusters=2, affinity=¡¯euclidean¡¯,
+memory=None, connectivity=None,
+compute_full_tree=¡¯auto¡¯,
+linkage=¡¯ward¡¯,
+pooling_func=<function mean>","Agglomerative Clustering
+Recursively merges the pair of clusters that minimally increases a given linkage distance.
+**n_clusters**
+int, default=2
+The number of clusters to find.
+**affinity**
+string or callable, default: ¡°euclidean¡±
+Metric used to compute the linkage. Can be ¡°euclidean¡±, ¡°l1¡±, ¡°l2¡±, ¡°manhattan¡±, ¡°cosine¡±, or ¡®precomputed¡¯. If linkage is ¡°ward¡±, only ¡°euclidean¡± is accepted.
+**memory**
+None, str or object with the joblib.Memory interface, optional
+Used to cache the output of the computation of the tree. By default, no caching is done. If a string is given, it is the path to the caching directory.
+**connectivity**
+array-like or callable, optional
+Connectivity matrix. Defines for each sample the neighboring samples following a given structure of the data. This can be a connectivity matrix itself or a callable that transforms the data into a connectivity matrix, such as derived from kneighbors_graph. Default is None, i.e, the hierarchical clustering algorithm is unstructured.
+**compute_full_tree**
+bool or ¡®auto¡¯ (optional)
+Stop early the construction of the tree at n_clusters. This is useful to decrease computation time if the number of clusters is not small compared to the number of samples. This option is useful only when specifying a connectivity matrix. Note also that when varying the number of clusters and using caching, it may be advantageous to compute the full tree.
+**linkage**
+{¡°ward¡±, ¡°complete¡±, ¡°average¡±}, optional, default: ¡°ward¡±
+Which linkage criterion to use. The linkage criterion determines which distance to use between sets of observation. The algorithm will merge the pairs of cluster that minimize this criterion.
+    - ward minimizes the variance of the clusters being merged.
+    - average uses the average of the distances of each observation of the two sets.
+    - complete or maximum linkage uses the maximum distances between all observations of the two sets.
+**pooling_func**
+callable, default=np.mean
+This combines the values of agglomerated features into a single value, and should accept an array of shape [M, N] and the keyword argument axis=1, and reduce it to an array of size [M]."
+sklearn.cluster,Birch(),"threshold=0.5, branching_factor=50,
+n_clusters=3, compute_labels=True,
+copy=True","Implements the Birch clustering algorithm.
+It is a memory-efficient, online-learning algorithm provided as an alternative to MiniBatchKMeans. It constructs a tree data structure with the cluster centroids being read off the leaf. These can be either the final cluster centroids or can be provided as input to another clustering algorithm such as AgglomerativeClustering.
+**threshold**
+float, default 0.5
+The radius of the subcluster obtained by merging a new sample and the closest subcluster should be lesser than the threshold. Otherwise a new subcluster is started. Setting this value to be very low promotes splitting and vice-versa.
+**branching_factor**
+int, default 50
+Maximum number of CF subclusters in each node. If a new samples enters such that the number of subclusters exceed the branching_factor then that node is split into two nodes with the subclusters redistributed in each. The parent subcluster of that node is removed and two new subclusters are added as parents of the 2 split nodes.
+**n_clusters**
+int, instance of sklearn.cluster model, default 3
+Number of clusters after the final clustering step, which treats the subclusters from the leaves as new samples.
+**None**
+the final clustering step is not performed and the subclusters are returned as they are.
+sklearn.cluster Estimator : If a model is provided, the model is fit treating the subclusters as new samples and the initial data is mapped to the label of the closest subcluster.
+**int**
+the model fit is AgglomerativeClustering with n_clusters set to be equal to the int.
+**compute_labels**
+bool, default True
+Whether or not to compute labels for each fit.
+**copy**
+bool, default True
+Whether or not to make a copy of the given data. If set to False, the initial data will be overwritten."
+sklearn.cluster,DBSCAN(),"eps=0.5, min_samples=5, metric='euclidean',
+metric_params=None, algorithm=¡¯auto¡¯,
+leaf_size=30, p=None, n_jobs=1","Perform DBSCAN clustering from vector array or distance matrix.
+DBSCAN - Density-Based Spatial Clustering of Applications with Noise. Finds core samples of high density and expands clusters from them. Good for data which contains clusters of similar density.
+**eps**
+float, optional
+The maximum distance between two samples for them to be considered as in the same neighborhood.
+**min_samples**
+int, optional
+The number of samples (or total weight) in a neighborhood for a point to be considered as a core point. This includes the point itself.
+**metric**
+string, or callable
+The metric to use when calculating distance between instances in a feature array. If metric is a string or callable, it must be one of the options allowed by metrics.pairwise.calculate_distance for its metric parameter. If metric is ¡°precomputed¡±, X is assumed to be a distance matrix and must be square. X may be a sparse matrix, in which case only ¡°nonzero¡± elements may be considered neighbors for DBSCAN.
+New in version 0.17: metric precomputed to accept precomputed sparse matrix.
+**metric_params**
+dict, optional
+Additional keyword arguments for the metric function.
+New in version 0.19.
+**algorithm**
+{¡®auto¡¯, ¡®ball_tree¡¯, ¡®kd_tree¡¯, ¡®brute¡¯}, optional
+The algorithm to be used by the NearestNeighbors module to compute pointwise distances and find nearest neighbors. See NearestNeighbors module documentation for details.
+**leaf_size**
+int, optional (default = 30)
+Leaf size passed to BallTree or cKDTree. This can affect the speed of the construction and query, as well as the memory required to store the tree. The optimal value depends on the nature of the problem.
+**p**float, optional
+The power of the Minkowski metric to be used to calculate distance between points.
+**n_jobs**
+int, optional (default = 1)
+The number of parallel jobs to run. If -1, then the number of jobs is set to the number of CPU cores.
+"
+sklearn.cluster,Kmeans(),"n_clusters=8, init=¡¯k-means++¡¯,
+n_init=10, max_iter=300, tol=0.0001,
+precompute_distances=¡¯auto¡¯,
+verbose=0, random_state=None,
+copy_x=True, n_jobs=1,
+algorithm=¡¯auto¡¯","K-Means clustering.
+**n_clusters**
+int, optional, default: 8
+The number of clusters to form as well as the number of centroids to generate.
+**init**
+{¡®k-means++¡¯, ¡®random¡¯ or an ndarray}
+Method for initialization, defaults to ¡®k-means++¡¯:
+    ¡®k-means++¡¯ : selects initial cluster centers for k-mean clustering in a smart way to speed up convergence. See section Notes in k_init for more details.
+    ¡®random¡¯: choose k observations (rows) at random from data for the initial centroids.
+If an ndarray is passed, it should be of shape (n_clusters, n_features) and gives the initial centers.
+**n_init**
+int, default: 10
+Number of time the k-means algorithm will be run with different centroid seeds. The final results will be the best output of n_init consecutive runs in terms of inertia.
+**max_iter**
+int, default: 300
+Maximum number of iterations of the k-means algorithm for a single run.
+**tol**
+float, default: 1e-4
+Relative tolerance with regards to inertia to declare convergence.
+**precompute_distances**
+{¡®auto¡¯, True, False}
+Precompute distances (faster but takes more memory).
+    ¡®auto¡¯ : do not precompute distances if n_samples * n_clusters > 12 million. This corresponds to about 100MB overhead per job using double precision.
+    True : always precompute distances
+    False : never precompute distances
+**verbose**
+int, default 0
+Verbosity mode.
+**random_state**
+int, RandomState instance or None, optional, default: None
+If int, random_state is the seed used by the random number generator; If RandomState instance, random_state is the random number generator; If None, the random number generator is the RandomState instance used by np.random.
+**copy_x**
+boolean, default True
+When pre-computing distances it is more numerically accurate to center the data first. If copy_x is True, then the original data is not modified. If False, the original data is modified, and put back before the function returns, but small numerical differences may be introduced by subtracting and then adding the data mean.
+**n_jobs**
+int
+The number of jobs to use for the computation. This works by computing each of the n_init runs in parallel.
+If -1 all CPUs are used. If 1 is given, no parallel computing code is used at all, which is useful for debugging. For n_jobs below -1, (n_cpus + 1 + n_jobs) are used. Thus for n_jobs = -2, all CPUs but one are used.
+**algorithm**
+¡°auto¡±, ¡°full¡± or ¡°elkan¡±, default=¡±auto¡±
+K-means algorithm to use. The classical EM-style algorithm is ¡°full¡±. The ¡°elkan¡± variation is more efficient by using the triangle inequality, but currently doesn¡¯t support sparse data. ¡°auto¡± chooses ¡°elkan¡± for dense data and ¡°full¡± for sparse data.
+"
+sklearn.cluster,SpectralClustering(),,"Apply clustering to a projection to the normalized laplacian.
+In practice Spectral Clustering is very useful when the structure of the individual clusters is highly non-convex or more generally when a measure of the center and spread of the cluster is not a suitable description of the complete cluster. For instance when clusters are nested circles on the 2D plan.
+If affinity is the adjacency matrix of a graph, this method can be used to find normalized graph cuts.
+When calling fit, an affinity matrix is constructed using either kernel function such the Gaussian (aka RBF) kernel of the euclidean distanced d(X, X):
+    np.exp(-gamma * d(X,X) ** 2)
+or a k-nearest neighbors connectivity matrix.
+Alternatively, using precomputed, a user-provided affinity matrix can be used.
+**n_clusters**
+integer, optional
+The dimension of the projection subspace.
+**eigen_solver**
+{None, ¡®arpack¡¯, ¡®lobpcg¡¯, or ¡®amg¡¯}
+The eigenvalue decomposition strategy to use. AMG requires pyamg to be installed. It can be faster on very large, sparse problems, but may also lead to instabilities
+**random_state**
+int, RandomState instance or None, optional, default: None
+A pseudo random number generator used for the initialization of the lobpcg eigen vectors decomposition when eigen_solver == ¡®amg¡¯ and by the K-Means initialization. If int, random_state is the seed used by the random number generator; If RandomState instance, random_state is the random number generator; If None, the random number generator is the RandomState instance used by np.random.
+**n_init**
+int, optional, default: 10
+Number of time the k-means algorithm will be run with different centroid seeds. The final results will be the best output of n_init consecutive runs in terms of inertia.
+**gamma**
+float, default=1.0
+Kernel coefficient for rbf, poly, sigmoid, laplacian and chi2 kernels. Ignored for affinity='nearest_neighbors'.
+**affinity**
+string, array-like or callable, default ¡®rbf¡¯
+If a string, this may be one of ¡®nearest_neighbors¡¯, ¡®precomputed¡¯, ¡®rbf¡¯ or one of the kernels supported by sklearn.metrics.pairwise_kernels.
+Only kernels that produce similarity scores (non-negative values that increase with similarity) should be used. This property is not checked by the clustering algorithm.
+**n_neighbors**
+integer
+Number of neighbors to use when constructing the affinity matrix using the nearest neighbors method. Ignored for affinity='rbf'.
+**eigen_tol**
+float, optional, default: 0.0
+Stopping criterion for eigendecomposition of the Laplacian matrix when using arpack eigen_solver.
+**assign_labels**
+{¡®kmeans¡¯, ¡®discretize¡¯}, default: ¡®kmeans¡¯
+The strategy to use to assign labels in the embedding space. There are two ways to assign labels after the laplacian embedding. k-means can be applied and is a popular choice. But it can also be sensitive to initialization. Discretization is another approach which is less sensitive to random initialization.
+**degree**
+float, default=3
+Degree of the polynomial kernel. Ignored by other kernels.
+**coef0**
+float, default=1
+Zero coefficient for polynomial and sigmoid kernels. Ignored by other kernels.
+**kernel_params**
+dictionary of string to any, optional
+Parameters (keyword arguments) and values for kernel passed as callable object. Ignored by other kernels.
+**n_jobs**
+int, optional (default = 1)
+The number of parallel jobs to run. If -1, then the number of jobs is set to the number of CPU cores."
+sklearn.cluster.AgglomerativeClustering*,.labels_,,# cluster label of input data using AgglomerativeClustering.
+sklearn.cluster.AgglomerativeClustering*,fit(X),,"Fit the hierarchical clustering on the data.
+**X**
+array-like, shape = [n_samples, n_features]
+The samples a.k.a. observations."
+sklearn.cluster.Birch*,.labels_,,"Array of labels assigned to the input data. if partial_fit is used instead of fit, they are assigned to the last batch of data."
+sklearn.cluster.Birch*,fit(X),,"Build a CF Tree for the input data.
+**X**
+{array-like, sparse matrix}, shape (n_samples, n_features)
+Input data."
+sklearn.cluster.DBSCAN*,.labels_,,# cluster label of input data using DBSCAN.
+sklearn.cluster.DBSCAN*,fix(X),sample_weight=None,"Perform DBSCAN clustering from features or distance matrix.
+**X**
+array or sparse (CSR) matrix of shape (n_samples, n_features), or array of shape (n_samples, n_samples)
+A feature array, or array of distances between samples if metric='precomputed'.
+**sample_weight**
+array, shape (n_samples,), optional
+Weight of each sample, such that a sample with a weight of at least min_samples is by itself a core sample; a sample with negative weight may inhibit its eps-neighbor from being core. Note that weights are absolute, and default to 1.
+"
+sklearn.cluster.KMeans*,.labels_,,# cluster label of input data using KMeans.
+sklearn.cluster.KMeans*,fit(X),,"Compute k-means clustering.
+**X**
+array-like or sparse matrix, shape=(n_samples, n_features)
+Training instances to cluster."
+sklearn.cluster.SpectralClustering*,.labels_,,Labels of each point
+sklearn.cluster.SpectralClustering*,fit(),,"Creates an affinity matrix for X using the selected affinity, then applies spectral clustering to this affinity matrix.
+**X**
+array-like or sparse matrix, shape (n_samples, n_features)
+OR, if affinity==`precomputed`, a precomputed affinity matrix of shape (n_samples, n_samples)"
+sklearn.datasets,make_blobs(),"n_samples=100, n_features=2,
+centers=3, cluster_std=1.0,
+center_box=(-10.0, 10.0),
+shuffle=True, random_state=None","Generate isotropic Gaussian blobs for clustering.
+Read more in the :ref:`User Guide <sample_generators>`.
+**n_samples**
+int, optional (default=100)
+The total number of points equally divided among clusters.
+**n_features**
+int, optional (default=2)
+The number of features for each sample.
+**centers**
+int or array of shape [n_centers, n_features], optional(default=3)
+The number of centers to generate, or the fixed center locations.
+**cluster_std**
+float or sequence of floats, optional (default=1.0)
+The standard deviation of the clusters.
+**center_box**
+pair of floats (min, max), optional (default=(-10.0, 10.0))
+The bounding box for each cluster center when centers are generated at random.
+**shuffle**
+boolean, optional (default=True)
+Shuffle the samples.
+**random_state**
+int, RandomState instance or None, optional (default=None)
+If int, random_state is the seed used by the random number generator; If RandomState instance, random_state is the random number generator; If None, the random number generator is the RandomState instance used by `np.random`.
+**Returns**
+X : array of shape [n_samples, n_features]
+The generated samples.
+y : array of shape [n_samples]
+The integer labels for cluster membership of each sample."
+sklearn.linear_model,LinearRegression(),,Ordinary least squares Linear Regression.
+sklearn.linear_model,LogisticRegression(),,"Logistic Regression (aka logit, MaxEnt) classifier."
+sklearn.linear_model.LinearRegression*,"fit(X, y)",sample_weight=None,Fit linear model.
+sklearn.linear_model.LogisticRegression*,"fit(X, y)",sample_weight=None,Fit the model according to the given training data.
+sklearn.linear_model.LogisticRegression*,predict_log_proba(X),,"Probability estimates.
+The returned estimates for all classes are ordered by the label of classes."
+sklearn.linear_model.LogisticRegression*,predict_proba(X),,"Probability estimates.
+The returned estimates for all classes are ordered by the label of classes."
+sklearn.naive_bayes,BernoulliNB(),"alpha=1.0, binarize=0.0
+fit_prior=True, class_prior=None","Naive Bayes classifier for multivariate Bernoulli models.
+Like MultinomialNB, this classifier is suitable for discrete data. The difference is that while MultinomialNB works with occurrence counts, BernoulliNB is designed for binary/boolean features.
+**alpha**
+float, optional (default=1.0)
+Additive (Laplace/Lidstone) smoothing parameter (0 for no smoothing).
+**binarize**
+loat or None, optional (default=0.0)
+Threshold for binarizing (mapping to booleans) of sample features. If None, input is presumed to already consist of binary vectors.
+**fit_prior**
+boolean, optional (default=True)
+Whether to learn class prior probabilities or not. If false, a uniform prior will be used.
+**class_prior**
+array-like, size=[n_classes,], optional (default=None)
+Prior probabilities of the classes. If specified the priors are not adjusted according to the data.
+"
+sklearn.naive_bayes.BernoulliNB*,.classes_,,# the order of classes used in the model.
+sklearn.naive_bayes.BernoulliNB*,class_count_,,Number of samples encountered for each class during fitting. This value is weighted by the sample weight when provided.
+sklearn.naive_bayes.BernoulliNB*,"fit(X, y)",sample_weight=None,"Fit Naive Bayes classifier according to X, y.
+**X**
+{array-like, sparse matrix}, shape = [n_samples, n_features]
+Training vectors, where n_samples is the number of samples and n_features is the number of features.
+**y**
+array-like, shape = [n_samples]
+Target values.
+**sample_weight**
+array-like, shape = [n_samples], (default=None)
+Weights applied to individual samples (1. for unweighted).
+"
+sklearn.naive_bayes.BernoulliNB*,"partial_fit(X, y)","classes=None
+sample_weight=None","Incremental fit on a batch of samples.
+This method is expected to be called several times consecutively on different chunks of a dataset so as to implement out-of-core or online learning.
+This is especially useful when the whole dataset is too big to fit in memory at once.
+This method has some performance overhead hence it is better to call partial_fit on chunks of data that are as large as possible (as long as fitting in the memory budget) to hide the overhead.
+**X**
+{array-like, sparse matrix}, shape = [n_samples, n_features]
+Training vectors, where n_samples is the number of samples and n_features is the number of features.
+**y**
+array-like, shape = [n_samples]
+Target values.
+**classes**
+array-like, shape = [n_classes] (default=None)
+List of all the classes that can possibly appear in the y vector.
+Must be provided at the first call to partial_fit, can be omitted in subsequent calls.
+**sample_weight**
+array-like, shape = [n_samples] (default=None)
+Weights applied to individual samples (1. for unweighted)."
+sklearn.naive_bayes.BernoulliNB*,predict(X),,Perform classification on an array of test vectors X.
+sklearn.naive_bayes.BernoulliNB*,predict_log_proba(X),,Return log-probability estimates for the test vector X.
+sklearn.naive_bayes.BernoulliNB*,predict_proba(X),,Return probability estimates for the test vector X.
+sklearn.naive_bayes.BernoulliNB*,"score(X, y)",sample_weight=None,"Returns the mean accuracy on the given test data and labels.
+In multi-label classification, this is the subset accuracy which is a harsh metric since you require for each sample that each label set be correctly predicted.
+**X**
+array-like, shape = (n_samples, n_features)
+Test samples.
+**y**
+array-like, shape = (n_samples) or (n_samples, n_outputs)
+True labels for X.
+**sample_weight**
+array-like, shape = [n_samples], optional
+Sample weights.
+"
+sklearn.preprocessing,scale(X),"axis=0, with_mean=True,
+with_std=True, copy=True",Standardize a dataset along any axis.
+sklearn.svm,SVC(),,"C-Support Vector Classification.
+The implementation is based on libsvm. The fit time complexity is more than quadratic with the number of samples which makes it hard to scale to dataset with more than a couple of 10000 samples."
+sklearn.svm.SVC*,"fit(X, y)",sample_weight=None,Fit the SVM model according to the given training data.
+sklearn.svm.SVC*,predict(X),,"Perform classification on samples in X.
+For an one-class model, +1 or -1 is returned."
+sklearn.tree,DecisionTreeClassifier(),,A decision tree classifier.
+sklearn.tree.DecisionTreeClassifier*,"fit(X, y)","sample_weight=None,
+check_input=True,
+X_idx_sorted=None","Build a decision tree classifier from the training set (X, y)."
+sklearn.tree.DecisionTreeClassifier*,predict_proba(X),check_input=True,Predict class probabilities of the input samples X.
+tensorflow,"add(x, y)",name=None,"Returns x + y element-wise.
+**NOTE**
+`Add` supports broadcasting. `AddN` does not. More about broadcasting: [here](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html)"
+tensorflow,"add_to_collection(name, value)",,"Wrapper for `Graph.add_to_collection()` using the default graph.
+See @{tf.Graph.add_to_collection} for more details.
+**name**
+The key for the collection. For example, the `GraphKeys` class contains many standard names for collections.
+**value**
+The value to add to the collection."
+tensorflow,"assign(ref, value)","validate_shape=None, use_locking=None,
+name=None","Update 'ref' by assigning 'value' to it.
+This operation outputs a Tensor that holds the new value of 'ref' after the value has been assigned. This makes it easier to chain operations that need to use the reset value."
+tensorflow,"clip_by_value(t, clip_value_min)","clip_value_max, name=None","Clips tensor values to a specified min and max.
+Given a tensor `t`, this operation returns a tensor of the same type and shape as `t` with its values clipped to `clip_value_min` and `clip_value_max`. Any values less than `clip_value_min` are set to `clip_value_min`. Any values greater than `clip_value_max` are set to `clip_value_max`."
+tensorflow,constant(value),"dtype=None, shape=None,
+name=""Const"", verify_shape=False","Creates a constant tensor.
+The resulting tensor is populated with values of type `dtype`, as specified by arguments `value` and (optionally) `shape`."
+tensorflow,"fill(dims, value)",name=None,"Creates a tensor filled with a scalar value.
+This operation creates a tensor of shape `dims` and fills it with `value`."
+tensorflow,get_default_graph(),,"Returns the default graph for the current thread.
+The returned graph will be the innermost graph on which a `Graph.as_default()` context has been entered, or a global default graph if none has been explicitly created."
+tensorflow,get_shape(),,Alias of Tensor.shape.
+tensorflow,get_variable(name),"shape=None, dtype=None, initializer=None
+regularizer=None, trainable=True,
+collections=None, caching_device=None,
+partitioner=None, validate_shape=True,
+use_resource=None, custom_getter=None,
+constraint=None",Gets an existing variable with these parameters or create a new one.
+tensorflow,global_variables(),,"Returns global variables.
+Global variables are variables that are shared across machines in a distributed environment. The `Variable()` constructor or `get_variable()` automatically adds new variables to the graph collection `GraphKeys.GLOBAL_VARIABLES`. This convenience function returns the contents of that collection.
+An alternative to global variables are local variables. See @{tf.local_variables}.
+**Returns**
+A list of `Variable` objects."
+tensorflow,global_variables_initializer(),,"Returns an Op that initializes global variables.
+This is just a shortcut for `variable_initializer(global_variables())`."
+tensorflow,InteractiveSession(),"target='', graph=None, config=None",Creates a new interactive TensorFlow session.
+tensorflow,"matmul(a, b)","a_is_sparse=False,
+b_is_sparse=False,
+name=None","Multiplies matrix `a` by matrix `b`, producing `a` * `b`.
+Both matrices must be of the same type.
+**a_is_sparse**
+**b_is_sparse**
+If one or both of the matrices contain a lot of zeros, a more efficient multiplication algorithm can be used by setting the corresponding `a_is_sparse` or `b_is_sparse` flag to `True`. These are `False` by default. This optimization is only available for plain matrices (rank-2 tensors) with datatypes `bfloat16` or `float32`.
+"
+tensorflow,ones(shape),"dtype=dtypes.float32, name=None","Creates a tensor with all elements set to 1.
+This operation returns a tensor of type `dtype` with shape `shape` and all elements set to 1."
+tensorflow,placeholder(dtype),"shape=None, name=None","Inserts a placeholder for a tensor that will be always fed.
+**Important**: This tensor will produce an error if evaluated. Its value must be fed using the `feed_dict` optional argument to `Session.run()`, `Tensor.eval()`, or `Operation.run()`."
+tensorflow,"random_gamma(shape, alpha)","beta=None, dtype=dtypes.float32,
+seed=None, name=None","Draws `shape` samples from each of the given Gamma distribution(s).
+`alpha` is the shape parameter describing the distribution(s), and `beta` is the inverse scale parameter(s).
+**shape**
+A 1-D integer Tensor or Python array. The shape of the output samples to be drawn per alpha/beta-parameterized distribution.
+**alpha**
+A Tensor or Python value or N-D array of type `dtype`. `alpha` provides the shape parameter(s) describing the gamma distribution(s) to sample. Must be broadcastable with `beta`.
+**beta**
+A Tensor or Python value or N-D array of type `dtype`. Defaults to 1. `beta` provides the inverse scale parameter(s) of the gamma distribution(s) to sample. Must be broadcastable with `alpha`.
+**dtype**
+The type of alpha, beta, and the output: `float16`, `float32`, or `float64`.
+**seed**
+A Python integer. Used to create a random seed for the distributions.
+See @{tf.set_random_seed} for behavior.
+**name**
+Optional name for the operation."
+tensorflow,random_normal(shape),"mean=0.0, stddev=1.0,
+dtype=dtypes.float32,
+seed=None, name=None","Outputs random values from a normal distribution.
+**shape**
+A 1-D integer Tensor or Python array. The shape of the output tensor.
+**mean**
+A 0-D Tensor or Python value of type `dtype`. The mean of the normal distribution.
+**stddev**
+A 0-D Tensor or Python value of type `dtype`. The standard deviation of the normal distribution.
+**dtype**
+The type of the output.
+**seed**
+A Python integer. Used to create a random seed for the distribution.
+See @{tf.set_random_seed} for behavior.
+**name**
+A name for the operation (optional)."
+tensorflow,random_uniform(shape),"minval=0, maxval=None,
+dtype=dtypes.float32,
+seed=None, name=None","Outputs random values from a uniform distribution.
+The generated values follow a uniform distribution in the range `[minval, maxval)`. The lower bound `minval` is included in the range, while the upper bound `maxval` is excluded.
+For floats, the default range is `[0, 1)`.  For ints, at least `maxval` must be specified explicitly.
+**shape**
+A 1-D integer Tensor or Python array. The shape of the output tensor.
+**minval**
+A 0-D Tensor or Python value of type `dtype`. The lower bound on the range of random values to generate.  Defaults to 0.
+**maxval**
+A 0-D Tensor or Python value of type `dtype`. The upper bound on the range of random values to generate.  Defaults to 1 if `dtype` is floating point.
+**dtype**
+The type of the output: `float32`, `float64`, `int32`, or `int64`.
+**seed**
+A Python integer. Used to create a random seed for the distribution.
+See @{tf.set_random_seed} for behavior.
+**name**
+A name for the operation (optional)."
+tensorflow,Session(),"target='', graph=None, config=None","Creates a new TensorFlow session.
+If no `graph` argument is specified when constructing the session, the default graph will be launched in the session. If you are using more than one graph (created with `tf.Graph()` in the same process, you will have to use different sessions for each graph, but each graph can be used in multiple sessions. In this case, it is often clearer to pass the graph to be launched explicitly to the session constructor."
+tensorflow,"split(value, num_or_size_splits)","axis=0, num=None, name=""split""","Splits a tensor into sub tensors.
+# contained in a list."
+tensorflow,squeeze(input),"axis=None, name=None
+squeeze_dims=None",Removes dimensions of size 1 from the shape of a tensor.
+tensorflow,truncated_normal(shape),"mean=0.0, stddev=1.0,
+dtype=dtypes.float32,
+seed=None, name=None","Outputs random values from a truncated normal distribution.
+The generated values follow a normal distribution with specified mean and standard deviation, except that values whose magnitude is more than 2 standard deviations from the mean are dropped and re-picked.
+**shape**
+A 1-D integer Tensor or Python array. The shape of the output tensor.
+**mean**
+A 0-D Tensor or Python value of type `dtype`. The mean of the truncated normal distribution.
+**stddev**
+A 0-D Tensor or Python value of type `dtype`. The standard deviation of the truncated normal distribution.
+**dtype**
+The type of the output.
+**seed**
+A Python integer. Used to create a random seed for the distribution.
+See @{tf.set_random_seed} for behavior.
+**name**
+A name for the operation (optional)."
+tensorflow,Variable(initial-value),,"Creates a new variable with value `initial_value`.
+The new variable is added to the graph collections listed in `collections`, which defaults to `[GraphKeys.GLOBAL_VARIABLES]`.
+If `trainable` is `True` the variable is also added to the graph collection `GraphKeys.TRAINABLE_VARIABLES`.
+This constructor creates both a `variable` Op and an `assign` Op to set the variable to its initial value.
+**initial_value**
+A `Tensor`, or Python object convertible to a `Tensor`, which is the initial value for the Variable. The initial value must have a shape specified unless `validate_shape` is set to False. Can also be a callable with no argument that returns the initial value when called. In that case, `dtype` must be specified. (Note that initializer functions from init_ops.py must first be bound to a shape before being used here.)"
+tensorflow,zeros(shape),"dtype=dtypes.float32, name=None","Creates a tensor with all elements set to zero.
+This operation returns a tensor of type `dtype` with shape `shape` and all elements set to zero."
+tensorflow.app,flags,,"Implementation of the flags interface.
+# used for set parameter in cmd call"
+tensorflow.app,run(),"main=None, argv=None",Runs the program with an optional 'main' function and 'argv' list.
+tensorflow.contrib.legacy_seq2seq,"rnn_decoder(decoder_inputs, initial_state, cell)","loop_function=None, scope=None","RNN decoder for the sequence-to-sequence model.
+**decoder_inputs**
+A list of 2D Tensors [batch_size x input_size].
+**initial_state**
+2D Tensor with shape [batch_size x cell.state_size].
+**cell**
+rnn_cell.RNNCell defining the cell function and size.
+**loop_function**
+If not None, this function will be applied to the i-th output in order to generate the i+1-st input, and decoder_inputs will be ignored, except for the first element (""GO"" symbol)
+**scope**
+VariableScope for the created subgraph; defaults to ""rnn_decoder""."
+tensorflow.contrib.rnn,BasicLSTMCell(num_units),[activation][reuse],"Basic LSTM recurrent network cell.
+The implementation is based on: http://arxiv.org/abs/1409.2329."
+tensorflow.contrib.rnn,BasicRNNCell(num_units),[activation][reuse],"The most basic RNN cell.
+**num_units**
+int, The number of units in the RNN cell.
+**activation**
+Nonlinearity to use.  Default: `tanh`.
+**reuse**
+(optional) Python boolean describing whether to reuse variables in an existing scope.  If not `True`, and the existing scope already has the given variables, an error is raised."
+tensorflow.contrib.rnn,GRUCell(num_units),[activation][reuse],Gated Recurrent Unit cell (cf. http://arxiv.org/abs/1406.1078).
+tensorflow.contrib.rnn,LSTMStateTuple(_LSTMStateTuple),,"Tuple used by LSTM Cells for `state_size`, `zero_state`, and output state.
+Stores two elements: `(c, h)`, in that order.
+Only used when `state_is_tuple=True`."
+tensorflow.contrib.rnn,MultiRNNCell(cells),state_is_tuple=True,"Create a RNN cell composed sequentially of a number of RNNCells.
+**cells**
+list of RNNCells that will be composed in this order.
+**state_is_tuple**
+If True, accepted and returned states are n-tuples, where `n = len(cells)`.  If False, the states are all concatenated along the column axis.  This latter behavior will soon be deprecated.
+**Raise**
+ValueError: if cells is empty (not allowed), or at least one of the cells returns a state tuple but the flag `state_is_tuple` is `False`."
+tensorflow.contrib.rnn,NASCell(num_units),[activation][reuse],Neural Architecture Search (NAS) recurrent network cell.
+tensorflow.contrib.rnn.MultiRNNCell,.state_size,,# Return the state of the cell.
+tensorflow.contrib.rnn.MultiRNNCell,"zero_state(batch_size, dtype)",,# initialize the state of multi-layer RNN cell.
+tensorflow.nn,"dropout(x, keep_prob)","noise_shape=None
+seed=None, name=None","Computes dropout.
+# Using for avoide overfitting."
+tensorflow.nn,"embedding_lookup(params, ids)","partition_strategy=""mod"",
+name=None, validate_indices=True,
+max_norm=None","Looks up `ids` in a list of embedding tensors.
+"
+tensorflow.Optimizer*,minimize(loss),"global_step=None, var_list=None,
+gate_gradients=GATE_OP,
+aggregation_method=None,
+colocate_gradients_with_ops=False,
+name=None, grad_loss=None","Add operations to minimize `loss` by updating `var_list`.
+This method simply combines calls `compute_gradients()` and `apply_gradients()`. If you want to process the gradient before applying them call `compute_gradients()` and `apply_gradients()` explicitly instead of using this function.
+**loss**
+A `Tensor` containing the value to minimize.
+**global_step**
+Optional `Variable` to increment by one after the variables have been updated."
+tensorflow.Session*,as_default(),,Returns a context manager that makes this object the default session.
+tensorflow.Session*,close(),,"Closes this session.
+Calling this method frees all resources associated with the session."
+tensorflow.Session*,run(fetches),"feed_dict=None, options=None,
+run_metadata=None",Runs operations and evaluates tensors in `fetches`.
+tensorflow.Session*,"run(self, fetches)","feed_dict=None, options=None
+run_metadata=None","Runs operations and evaluates tensors in `fetches`.
+This method runs one ""step"" of TensorFlow computation, by running the necessary graph fragment to execute every `Operation` and evaluate every `Tensor` in `fetches`, substituting the values in `feed_dict` for the corresponding input values.
+The `fetches` argument may be a single graph element, or an arbitrarily nested list, tuple, namedtuple, dict, or OrderedDict containing graph elements at its leaves.  A graph element can be one of the following types:
+* An @{tf.Operation}.
+  The corresponding fetched value will be `None`.
+* A @{tf.Tensor}.
+  The corresponding fetched value will be a numpy ndarray containing the value of that tensor.
+* A @{tf.SparseTensor}.
+  The corresponding fetched value will be a @{tf.SparseTensorValue} containing the value of that sparse tensor.
+* A `get_tensor_handle` op.
+  The corresponding fetched value will be a numpy ndarray containing the handle of that tensor.
+* A `string` which is the name of a tensor or operation in the graph.
+The value returned by `run()` has the same shape as the `fetches` argument, where the leaves are replaced by the corresponding values returned by TensorFlow."
+tensorflow.Session*,"run(self, fetches)","feed_dict=None, options=None
+run_metadata=None","Runs operations and evaluates tensors in `fetches`.
+This method runs one ""step"" of TensorFlow computation, by running the necessary graph fragment to execute every `Operation` and evaluate every `Tensor` in `fetches`, substituting the values in `feed_dict` for the corresponding input values.
+**fetches**
+A single graph element, a list of graph elements, or a dictionary whose values are graph elements or lists of graph elements (described above).
+**feed_dict**
+A dictionary that maps graph elements to values (described above).
+**options**
+A [`RunOptions`] protocol buffer.
+**run_metadata**
+A [`RunMetadata`] protocol buffer."
+tensorflow.Tensor*,.dtype,,The `DType` of elements in this tensor.
+tensorflow.Tensor*,.graph,,The `Graph` that contains this tensor.
+tensorflow.Tensor*,.name,,# Return the name of the tensor in the graph
+tensorflow.Tensor*,.shape,,Returns the `TensorShape` that represents the shape of this tensor.
+tensorflow.Tensor*,eval(),"feed_dict=None, session=None","Evaluates this tensor in a `Session`.
+Calling this method will execute all preceding operations that produce the inputs needed for the operation that produces this tensor.
+*N.B.*
+Before invoking `Tensor.eval()`, its graph must have been launched in a session, and either a default session must be available, or `session` must be specified explicitly."
+tensorflow.Tensor*,eval(self),"feed_dict=None, session=None","Evaluates this tensor in a `Session`.
+Calling this method will execute all preceding operations that produce the inputs needed for the operation that produces this tensor.
+*N.B.* Before invoking `Tensor.eval()`, its graph must have been launched in a session, and either a default session must be available, or `session` must be specified explicitly.
+**feed_dict**
+A dictionary that maps `Tensor` objects to feed values. See @{tf.Session.run} for a description of the valid feed values.
+**session**
+(Optional.) The `Session` to be used to evaluate this tensor. If none, the default session will be used.
+**Returns**
+A numpy array corresponding to the value of this tensor."
+tensorflow.train,AdamOptimizer(),"learning_rate=0.001, beta1=0.9,
+beta2=0.999, epsilon=1e-8,
+use_locking=False, name=""Adam""",Optimizer that implements the Adam algorithm.
+tensorflow.Variable*,.dtype,,The `DType` of this variable.
+tensorflow.Variable*,"assign(self, value)",use_locking=False,"Assigns a new value to the variable.
+This is essentially a shortcut for `assign(self, value)`.
+**Args**
+value: A `Tensor`. The new value for this variable.
+use_locking: If `True`, use locking during the assignment.
+**Returns**
+A `Tensor` that will hold the new value of this variable after the assignment has completed."
+torch,abs(input),out=None,Computes the element-wise absolute value of the given input tensor.
+torch,"add(input, value)",out=None,"Adds the scalar value to each element of the input input and returns a new resulting tensor.
+out=input+value
+If input is of type FloatTensor or DoubleTensor, value must be a real number, otherwise it should be an integer."
+torch,ceil(input),out=None,"Returns a new tensor with the ceil of the elements of input, the smallest integer greater than or equal to each element."
+torch,"chunk(tensor, n_chunks)",dim=0,Splits a tensor into a specific number of chunks.
+torch,"clamp(input, min, max)",out=None,"Clamp all elements in input into the range [min, max] and return a resulting tensor.
+If input is of type FloatTensor or DoubleTensor, args min and max must be real numbers, otherwise they should be integers."
+torch,"dot(tensor1, tensor2)",out=None,Computes the dot product (inner product) of two tensors.
+torch,floor(input),out=None,"Returns a new tensor with the floor of the elements of input, the largest integer less than or equal to each element."
+torch,"matmul(tensor1, tensor2)",out=None,"Matrix product of two tensors.
+# complex."
+torch,max(input),out=None,Returns the maximum value of all elements in the input tensor.
+torch,mean(input),out=None,Returns the mean value of all elements in the input tensor.
+torch,median(input),out=None,Returns the median value of all elements in the input tensor.
+torch,min(input),out=None,Returns the minimum value of all elements in the input tensor.
+torch,"mm(mat1, mat2)",out=None,Performs a matrix multiplication of the matrices mat1 and mat2.
+torch,"mul(input, value)",out=None,"Multiplies each element of the input input with the scalar value and returns a new resulting tensor.
+outi=value¡Áinputi
+If input is of type FloatTensor or DoubleTensor, value should be a real number, otherwise it should be an integer."
+torch,"pow(base, input)",out=None,"base is a scalar float value, and input is a tensor. The returned tensor out is of the same shape as input."
+torch,randn(*sizes),out=None,Returns a tensor filled with random numbers from a normal distribution with zero mean and variance of one.
+torch,round(input),out=None,Returns a new tensor with each of the elements of input rounded to the closest integer.
+torch,sqrt(input),out=None,Returns a new tensor with the square-root of the elements of input.
+torch,t(input),out=None,"Expects input to be a matrix (2-D tensor) and transposes dimensions 0 and 1.
+Can be seen as a short-hand function for transpose(input, 0, 1)"
+torch,Tensor(),,"Creates a new tensor from an optional size or data.
+If no arguments are given, an empty zero-dimensional tensor is returned. If a numpy.ndarray, torch.Tensor, or torch.Storage is given, a new tensor that shares the same data is returned. If a Python sequence is given, a new tensor is created from a copy of the sequence."
+torch.autograd,Variable(),"data, requires_grad, volatile","Variable is a thin wrapper around a Tensor object, that also holds the gradient w.r.t. to it, and a reference to a function that created it. This reference allows retracing the whole chain of operations that created the data. If the Variable has been created by the user, its grad_fn will be None and we call such objects leaf Variables.
+Since autograd only supports scalar valued function differentiation, grad size always matches the data size. Also, grad is normally only allocated for leaf variables, and will be always zero otherwise.
+**data**
+(any tensor class)
+Tensor to wrap.
+**requires_grad**
+(bool)
+Value of the requires_grad flag. Keyword only.
+**volatile**
+(bool)
+Value of the volatile flag. Keyword only."
+torch.autograd.Variable*,.data,,Wrapped tensor of any type.
+torch.autograd.Variable*,.grad,,"Variable holding the gradient of type and location matching the .data.
+This attribute is lazily allocated and can¡¯t be reassigned."
+torch.autograd.Variable*,.grad_fn,,Gradient function graph trace.
+torch.autograd.Variable*,.is_leaf,,Boolean indicating if the Variable is a graph leaf (i.e if it was created by the user).
+torch.autograd.Variable*,.requires_grad,,"Boolean indicating whether the Variable has been created by a subgraph containing any Variable, that requires it.
+See Excluding subgraphs from backward for more details. Can be changed only on leaf Variables."
+torch.autograd.Variable*,.volatile,,"Boolean indicating that the Variable should be used in inference mode, i.e. don¡¯t save the history.
+See Excluding subgraphs from backward for more details. Can be changed only on leaf Variables."
+torch.Tensor*,abs(),,See torch.abs()
+torch.Tensor*,add(),,See torch.add()
+torch.Tensor*,apply(),,"Applies the function callable to each element in the tensor, replacing each element with the value returned by callable."
+torch.Tensor*,ceil(),,See torch.ceil()
+torch.Tensor*,chunk(n_chunks),,"Splits this tensor into a certain number of tensor chunks.
+See torch.chunk()."
+torch.Tensor*,"clamp(min, max)",,See torch.clamp()
+torch.Tensor*,clone(),,Returns a copy of the self tensor. The copy has the same size and data type as self.
+torch.Tensor*,dot(),,See torch.dot()
+torch.Tensor*,fill(),,Fills self tensor with the specified value.
+torch.Tensor*,floor(),,See torch.floor()
+torch.Tensor*,matmul(other),,"Matrix product of two tensors.
+See torch.matmul()."
+torch.Tensor*,max(),"dim=None, keepdim=False",See torch.max()
+torch.Tensor*,mean(),,See torch.mean()
+torch.Tensor*,median(),,See torch.median()
+torch.Tensor*,min(),,See torch.min()
+torch.Tensor*,mm(),,See torch.mm()
+torch.Tensor*,mul(value),,See torch.mul()
+torch.Tensor*,numpy(),,Returns self tensor as a NumPy ndarray. This tensor and the returned ndarray share the same underlying storage. Changes to self tensor will be reflected in the ndarray and vice versa.
+torch.Tensor*,pow(exponent),,See torch.pow()
+torch.Tensor*,round(),,See torch.round()
+torch.Tensor*,sqrt(),,See torch.sqrt()
+torch.Tensor*,sum(),"dim=None, keepdim=False",See torch.sum()
+torch.Tensor*,t(),,See torch.t()
+torch.Tensor*,tolist(),,Returns a nested list represenation of this tensor.
+torch.Tensor*,transpose(),"dim0, dim1",See torch.transpose()
+torch.Tensor*,type(),"new_type=None, async=False","Returns the type if new_type is not provided, else casts this object to the specified type.
+If this is already of the correct type, no copy is performed and the original object is returned."
+torch.Tensor*,zero_(),,Fills self tensor with zeros.
+wand.image,Image(),"[image], [filename], [resolution]","An image object.
+**param image**
+makes an exact copy of the ``image``.
+**param file**
+opens an image of the ``file`` object.
+**param filename**
+opens an image of the ``filename`` string.
+**param resolution**
+set a resolution value (dpi), useful for vectorial formats (like pdf)."
+wand.image.Image*,convert(format),,"Converts the image format with the original image maintained.
+It returns a converted image instance which is new.
+# png, jpeg are available.
+with img.convert('png') as converted:
+    converted.save(filename='converted.png')"
+wand.image.Image*,save(file|filename),,Saves the image into the ``file`` or ``filename``. It takes only one argument at a time.

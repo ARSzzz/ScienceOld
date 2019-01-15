@@ -1,0 +1,14 @@
+Type,Function,Description
+Basic,list.files(),These functions produce a character vector of the names of files or directories in the named directory.
+Basic,round(),rounds the values in its first argument to the specified number of decimal places (default 0).
+dplyr,filter() ,Return rows with matching conditions.
+dplyr,slice(),Select rows by position.
+dplyr,arrange(),"Use desc to sort a variable in descending order. Generally, this will not also automatically order by grouping variables."
+dplyr,select(),
+dplyr,rename(),
+dplyr,distinct(),
+dplyr,mutate(),
+dplyr,transmute(),
+dplyr,summarise(),
+dplyr,sample_n(),
+dplyr,sample_frac(),

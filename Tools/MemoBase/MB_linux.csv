@@ -1,0 +1,107 @@
+Area,command,content
+bash_shell,type,-- find the type of a command
+bash_shell,ls,"ls [OPTION]... [FILE]...
+
+List  information  about  the  **FILE**s  (the  current directory by default).  Sort entries
+alphabetically if none of -cftuvSUX nor --sort is specified.
+Mandatory arguments to long options are mandatory for short options too.
+
+- -a, --all
+
+do not ignore entries starting with .
+Mandatory arguments to long options are mandatory for short options too.
+
+- -A, --almost-all
+
+do not list implied . and ..
+
+- -l
+
+use a long listing format"
+bash_shell,date,"date [OPTION]... [+FORMAT]
+
+Display the current time in the given FORMAT, or set the system date.
+Mandatory arguments to long options are mandatory for short options too."
+bash_shell,echo,"echo [SHORT-OPTION]... [STRING]...
+echo LONG-OPTION
+
+Echo the STRING(s) to standard output."
+bash_shell,cal,-- displays a calendar and the date of Easter
+bash_shell,bc,-- An arbitrary precision calculator language
+bash_shell,halt,"-- halt, poweroff, reboot may be used to halt, power-off or reboot the machine."
+bash_shell,poweroff,"-- halt, poweroff, reboot may be used to halt, power-off or reboot the machine."
+bash_shell,reboot,"-- halt, poweroff, reboot may be used to halt, power-off or reboot the machine."
+bash_shell,shutdown,"shutdown [OPTIONS...] [TIME] [WALL...]
+
+**shutdown** may be used to halt, power-off or reboot the machine.
+The first argument may be a time string (which is usually ""now""). Optionally, this may be followed by a wall message to be sent to all logged-in users before going down.
+The time string may either be in the format ""hh:mm"" for hour/minutes specifying the time to execute the shutdown at, specified in 24h clock format. Alternatively it may be in the syntax ""+m"" referring to the specified number of minutes m from now.  ""now"" is an alias for ""+0"", i.e. for triggering an immediate shutdown. If no time argument is specified, ""+1"" is implied.
+
+-H, --halt
+Halt the machine."
+bash_shell,sync,"sync [OPTION] [FILE]...
+
+Synchronize cached writes to persistent storage
+If one or more files are specified, sync only them, or their containing file systems."
+bash_shell,chgrp,"chgrp [OPTION]... GROUP FILE...
+chgrp [OPTION]... --reference=RFILE FILE...
+
+Change the group of each FILE to GROUP.  With --reference, change the group of each **FILE** to that of RFILE.
+
+
+-R, --recursive
+operate on files and directories recursively"
+bash_shell,chown,"chown [OPTION]... [OWNER][:[GROUP]] FILE...
+chown [OPTION]... --reference=RFILE FILE...
+
+chown - change file owner and group"
+bash_shell,cp,"cp [OPTION]... [-T] SOURCE DEST
+cp [OPTION]... SOURCE... DIRECTORY
+cp [OPTION]... -t DIRECTORY SOURCE...
+
+Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.
+Mandatory arguments to long options are mandatory for short options too."
+bash_shell,chmod,"chmod [OPTION]... MODE[,MODE]... FILE...
+chmod [OPTION]... OCTAL-MODE FILE...
+chmod [OPTION]... --reference=RFILE FILE...
+
+chmod - change file mode bits."
+bash_shell,mkdir,"mkdir [OPTION]... DIRECTORY...
+
+Create the DIRECTORY(ies), if they do not already exist.
+Mandatory arguments to long options are mandatory for short options too."
+bash_shell,touch,"touch [OPTION]... FILE...
+
+touch - change file timestamps.
+-- can create a file."
+bash_shell,pwd,"pwd [OPTION]...
+
+Print the full filename of the current working directory."
+bash_shell,rmdir,"rmdir [OPTION]... DIRECTORY...
+
+Remove the DIRECTORY(ies), if they are empty."
+bash_shell,rm,"rm [OPTION]... [FILE]...
+
+This  manual  page documents the GNU version of rm.  rm removes each specified file.  By default, it does not remove directories.
+
+-r, -R, --recursive
+remove directories and their contents recursively"
+bash_shell,mv,"mv [OPTION]... [-T] SOURCE DEST
+mv [OPTION]... SOURCE... DIRECTORY
+mv [OPTION]... -t DIRECTORY SOURCE...
+
+Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.
+Mandatory arguments to long options are mandatory for short options too.
+
+-f, --force
+do not prompt before overwriting."
+bash_shell,basename,"basename NAME [SUFFIX]
+basename OPTION... NAME...
+
+Print  NAME  with any leading directory components removed.  If specified, also remove a trailing SUFFIX."
+bash_shell,dirname,"dirname [OPTION] NAME...
+
+Output each NAME with its last non-slash component and trailing slashes removed; if NAME contains no /'s, output '.' (meaning the current directory)."
+bash_shell,,
+bash_shell,,
+bash_shell,,

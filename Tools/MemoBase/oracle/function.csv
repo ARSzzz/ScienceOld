@@ -1,0 +1,76 @@
+Function,Usage,Explanation
+AVG(),"AVG([DISTINCT|ALL], expr) [OVER(analytic_clause)]","AVG returns average value of expr.
+This function takes as an argument any numeric data type or any nonnumeric data type that can be implicitly converted to a numeric data type. The function returns the same data type as the numeric data type of the argument."
+COALESCE(),"COALESCE(expr, expr, [expr],...)","COALESCE returns the first non-null expr in the expression list. You must specify at least two expressions. If all occurrences of expr evaluate to null, then the function returns null.
+
+Oracle Database uses short-circuit evaluation. The database evaluates each expr value and determines whether it is NULL, rather than evaluating all of the expr values before determining whether any of them is NULL.
+
+If all occurrences of expr are numeric data type or any nonnumeric data type that can be implicitly converted to a numeric data type, then Oracle Database determines the argument with the highest numeric precedence, implicitly converts the remaining arguments to that data type, and returns that data type."
+COUNT(),COUNT({* | [DISTINCT|ALL] expr}) [OVER (analytic_clause)],COUNT returns the number of rows returned by the query. You can use it as an aggregate or analytic function.
+DBMS_RANDOM.VALUE(),"DBMS_RANDOM.VALUE()
+DBMS_RANDOM.VALUE(A, B)","不带参数：
+DBMS_RANDOM.VALUE()
+返回一个具有38位精度的数值，范围为 [0.0, 1.0)
+
+带有两个参数：
+DBMS_RANDOM.VALUE(A, B)
+第一个指下限，第二个指上限，随机数范围为 [A, B)"
+INSTR(),"{INSTR|INSTRB|INSTRC|INSTR2|INSTR4}(string, substring, [position], [occurrence])","The INSTR functions search string for substring. The search operation is defined as comparing the substring argument with substrings of string of the same length for equality until a match is found or there are no more substrings left. Each consecutive compared substring of string begins one character to the right (for forward searches) or one character to the left (for backward searches) from the first character of the previous compared substring. If a substring that is equal to substring is found, then the function returns an integer indicating the position of the first character of this substring. If no such substring is found, then the function returns zero.
+
+- position is an nonzero integer indicating the character of string where Oracle Database begins the search—that is, the position of the first character of the first substring to compare with substring. If position is negative, then Oracle counts backward from the end of string and then searches backward from the resulting position.
+
+- occurrence is an integer indicating which occurrence of substring in string Oracle should search for. The value of occurrence must be positive. If occurrence is greater than 1, then the database does not return on the first match but continues comparing consecutive substrings of string, as described above, until match number occurrence has been found."
+LENGTH(),{LENGTH|LENGTHB|LENGTHC|LENGTH2|LENGTH4}(char),The LENGTH functions return the length of char. LENGTH calculates length using characters as defined by the input character set. LENGTHB uses bytes instead of characters. LENGTHC uses Unicode complete characters. LENGTH2 uses UCS2 code points. LENGTH4 uses UCS4 code points.
+LISTAGG(),"LISTAGG([all], measure_expr, ['delimiter'], [listagg_overflow_clause])","For a specified measure, LISTAGG orders data within each group specified in the ORDER BY clause and then concatenates the values of the measure column."
+LOWER(),LOWER(char),"LOWER returns char, with all letters lowercase. char can be any of the datatypes CHAR, VARCHAR2, NCHAR, NVARCHAR2, CLOB, or NCLOB. The return value is the same datatype as char. The database sets the case of the characters based on the binary mapping defined for the underlying character set. For linguistic-sensitive lowercase, please refer to NLS_LOWER."
+MAX(),"MAX([DISTINCT|ALL], expr) [OVER(analytic_clause)]",MAX returns maximum value of expr. You can use it as an aggregate or analytic function.
+MIN(),"MIN([DISTINCT|ALL], expr) [OVER(analytic_clause)]",MIN returns minimum value of expr. You can use it as an aggregate or analytic function.
+NVL(),"NVL(expr1, expr2)","NVL lets you replace null (returned as a blank) with a string in the results of a query. If expr1 is null, then NVL returns expr2. If expr1 is not null, then NVL returns expr1.
+
+The arguments expr1 and expr2 can have any data type. If their data types are different, then Oracle Database implicitly converts one to the other. If they cannot be converted implicitly, then the database returns an error. The implicit conversion is implemented as follows:
+
+- If expr1 is character data, then Oracle Database converts expr2 to the data type of expr1 before comparing them and returns VARCHAR2 in the character set of expr1.
+- If expr1 is numeric, then Oracle Database determines which argument has the highest numeric precedence, implicitly converts the other argument to that data type, and returns that data type."
+REGEXP_COUNT(),"REGEXP_COUNT(source_char, pattern, [position], [match_param])",计算字符串中某个匹配出现的次数。
+REGEXP_LIKE(),"REGEXP_LIKE(source_char, pattern, [match_parameter])","REGEXP_LIKE is similar to the LIKE condition, except REGEXP_LIKE performs regular expression matching instead of the simple pattern matching performed by LIKE. This condition evaluates strings using characters as defined by the input character set."
+REGEXP_REPLACE(),"REGEXP_REPLACE(source_char, pattern, [replace_string], [position], [occurrence], [match_parameter])","REGEXP_REPLACE extends the functionality of the REPLACE function by letting you search a string for a regular expression pattern. By default, the function returns source_char with every occurrence of the regular expression pattern replaced with replace_string. The string returned is in the same character set as source_char. The function returns VARCHAR2 if the first argument is not a LOB and returns CLOB if the first argument is a LOB."
+REGEXP_SUBSTR(),"REGEXP_SUBSTR(source_char, pattern, [position], [occurrence], [match_parameter])","REGEXP_SUBSTR extends the functionality of the SUBSTR function by letting you search a string for a regular expression pattern. It is also similar to REGEXP_INSTR, but instead of returning the position of the substring, it returns the substring itself. This function is useful if you need the contents of a match string but not its position in the source string. The function returns the string as VARCHAR2 or CLOB data in the same character set as source_char."
+REPLACE(),"REPLACE(char, search_string , [replacement_string])","REPLACE returns char with every occurrence of search_string replaced with replacement_string. If replacement_string is omitted or null, then all occurrences of search_string are removed. If search_string is null, then char is returned.
+
+Both search_string and replacement_string, as well as char, can be any of the data types CHAR, VARCHAR2, NCHAR, NVARCHAR2, CLOB, or NCLOB. The string returned is in the same character set as char. The function returns VARCHAR2 if the first argument is not a LOB and returns CLOB if the first argument is a LOB.
+
+REPLACE provides functionality related to that provided by the TRANSLATE function. TRANSLATE provides single-character, one-to-one substitution. REPLACE lets you substitute one string for another as well as to remove character strings."
+SUBSTR(),"{SUBSTR | SUBSTRB | SUBSTRC | SUBSTR2 | SUBSTR4}(char, position [, substring_length ])","The SUBSTR functions return a portion of char, beginning at character position, substring_length characters long. SUBSTR calculates lengths using characters as defined by the input character set. SUBSTRB uses bytes instead of characters. SUBSTRC uses Unicode complete characters. SUBSTR2 uses UCS2 code points. SUBSTR4 uses UCS4 code points.
+
+- If position is 0, then it is treated as 1.
+- If position is positive, then Oracle Database counts from the beginning of char to find the first character.
+- If position is negative, then Oracle counts backward from the end of char.
+- If substring_length is omitted, then Oracle returns all characters to the end of char. If substring_length is less than 1, then Oracle returns null.
+
+char can be any of the datatypes CHAR, VARCHAR2, NCHAR, NVARCHAR2, CLOB, or NCLOB. Both position and substring_length must be of datatype NUMBER, or any datatype that can be implicitly converted to NUMBER, and must resolve to an integer. The return value is the same datatype as char. Floating-point numbers passed as arguments to SUBSTR are automatically converted to integers."
+SUM(),"SUM([DISTINCT|ALL], expr) [OVER(analytic_clause)]","SUM returns the sum of values of expr. You can use it as an aggregate or analytic function.
+This function takes as an argument any numeric data type or any nonnumeric data type that can be implicitly converted to a numeric data type. The function returns the same data type as the numeric data type of the argument."
+TO_NUMBER(),"TO_NUMBER(expr, [fmt], ['nlsparam'])","TO_NUMBER converts expr to a value of NUMBER datatype. The expr can be a BINARY_FLOAT or BINARY_DOUBLE value or a value of CHAR, VARCHAR2, NCHAR, or NVARCHAR2 datatype containing a number in the format specified by the optional format model fmt."
+TRANSLATE(),"TRANSLATE(expr, from_string, to_string)","TRANSLATE returns expr with all occurrences of each character in from_string replaced by its corresponding character in to_string. Characters in expr that are not in from_string are not replaced. If expr is a character string, then you must enclose it in single quotation marks. The argument from_string can contain more characters than to_string. In this case, the extra characters at the end of from_string have no corresponding characters in to_string. If these extra characters appear in char, then they are removed from the return value.
+
+You cannot use an empty string for to_string to remove all characters in from_string from the return value. Oracle Database interprets the empty string as null, and if this function has a null argument, then it returns null.
+
+TRANSLATE provides functionality related to that provided by the REPLACE function. REPLACE lets you substitute a single string for another single string, as well as remove character strings. TRANSLATE lets you make several single-character, one-to-one substitutions in one operation.
+
+This function does not support CLOB data directly. However, CLOBs can be passed in as arguments through implicit data conversion."
+TRIM(),"TRIM([LEADING|TRAILING|BOTH] [trim_character] FROM trim_source)
+TRIM(trim_source)","TRIM enables you to trim leading or trailing characters (or both) from a character string. If trim_character or trim_source is a character literal, then you must enclose it in single quotation marks.
+
+- If you specify LEADING, then Oracle Database removes any leading characters equal to trim_character.
+- If you specify TRAILING, then Oracle removes any trailing characters equal to trim_character.
+- If you specify BOTH or none of the three, then Oracle removes leading and trailing characters equal to trim_character.
+- If you do not specify trim_character, then the default value is a blank space.
+- If you specify only trim_source, then Oracle removes leading and trailing blank spaces.
+- The function returns a value with data type VARCHAR2. The maximum length of the value is the length of trim_source.
+- If either trim_source or trim_character is null, then the TRIM function returns null.
+
+Both trim_character and trim_source can be VARCHAR2 or any data type that can be implicitly converted to VARCHAR2. The string returned is a VARCHAR2 (NVARCHAR2) data type if trim_source is a CHAR or VARCHAR2 (NCHAR or NVARCHAR2) data type, and a CLOB if trim_source is a CLOB data type. The return string is in the same character set as trim_source."
+UPPER(),UPPER(char),"UPPER returns char, with all letters uppercase. char can be any of the datatypes CHAR, VARCHAR2, NCHAR, NVARCHAR2, CLOB, or NCLOB. The return value is the same datatype as char. The database sets the case of the characters based on the binary mapping defined for the underlying character set. For linguistic-sensitive uppercase, please refer to NLS_UPPER."
+WMSYS.WM_CONCAT(),WM_CONCAT(col),# concate the col.
+CAST(),CAST(… AS type_name …),CAST lets you convert built-in data types or collection-typed values of one type into another built-in data type or collection type. You can cast an unnamed operand (such as a date or the result set of a subquery) or a named collection (such as a varray or a nested table) into a type-compatible data type or named collection. The type_name must be the name of a built-in data type or collection type and the operand must be a built-in data type or must evaluate to a collection value.
+ROW_NUMBER(),ROW_NUMBER() OVER ([query_partition_clause] order_by_clause),"ROW_NUMBER is an analytic function. It assigns a unique number to each row to which it is applied (either each row in the partition or each row returned by the query), in the ordered sequence of rows specified in the order_by_clause, beginning with 1."
