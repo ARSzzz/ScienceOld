@@ -1,5 +1,3 @@
-<!-- @import "../引用/my-style.less" -->
-
 # Rosenblatt 感知机
 
 **感知机是第一个从算法上完整描述的神经网络**。Rosenblatt 感知机是最先出现的作为监督学习的感知机模型。
