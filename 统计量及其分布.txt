@@ -1,0 +1,138 @@
+# 统计量及其分布
+
+## 一、总体与样本 Population and sample
+
+一般把研究对象的全体称为**总体**（Population），构成总体的成员称为**个体**。尝试用概率分布去描述和归纳总体，以帮助解决现实中的实际问题。从这个意义看，**总体就是一个分布**，**其数量指标就是服从这个分布的随机变量**。
+
+将样本的观测值由小到大排列，为 $\{x_{(1)}, x_{(2)}, \dots, x_{(n)}\}$，称其有**有序样本**。用有序样本定义如下**非减右连续函数**：
+$$
+\mathrm{F}_n(x)=
+\begin{cases}
+    0, \qquad          & x < x_{(1)} \\
+    \frac{k}{n} \qquad & x_{(k)} \leq x < x_{(k+1)}, \ k \in \{1, 2, \dots, n-1\} \\
+    1, \qquad          & x \geq x_{(n)}
+\end{cases}
+$$
+
+且 $\mathrm{F}_n(x)$ 满足
+$$\begin{cases}
+    \mathrm{F}_n(-\infty) = 0 \\
+    \mathrm{F}_n(\infty) = 1
+\end{cases}$$
+
+> **定义：样本 sample**
+> 为了解总体的分布，从总体中随机地取出 $n$ 个个体，记其标记值为 $\{x_1, x_2, \dots, x_n\}$。称 $\{x_1, x_2, \dots, x_n\}$ 为总体的一个**样本**，称 $n$ 为**样本容量**，简称**样本量**。样本中的个体称为**样品**或**样本点**（Sample point）。
+
+如果样本的观测值是一个范围而非具体的数值，则称其为**分组样本**，这是一种不完全样本。
+
+为保证可以由样本对总体作出准确的推断，样本必须能很好地**代表**总体。要达到这一目的，就需要对抽样方法提出要求。用**简单随机抽样**方法得到的样本称为**简单随机样本**，它对抽样过程有如下要求：
+
+- **随机性**：总体中每一个个体都有同等机会被选为样本。这表示每一个样品 $x_i$ 与总体 $X$ 有相同的分布。
+
+- **独立性**：样本中每一个样品的取值不会影响其他样品的取值。这表示 $\{x_1, x_2, \dots, x_n\}$ 之间是相互独立的。
+
+简单随机样本 $\{x_1, x_2, \dots, x_n\}$ 可以看成是相互独立的具有同一分布的随机变量，因此称其为 ***iid* 样本**（Independent Identically Distributed），一个结局。其共同分布即为总体分布。设该样本的总体 $X$ 有分布函数 $\mathrm{F}(x)$，则样本**联合分布函数**为
+$$
+\mathrm{F}(x_1, x_2, \dots, x_n)=\prod_{i=1}^n \mathrm{F}(x_i)
+$$
+
+将样本的观测值由小到大排列，为 $\{x_{(1)}, x_{(2)}, \dots, x_{(n)}\}$，称其有**有序样本**。用有序样本定义如下**非减右连续函数**：
+$$
+\mathrm{F}_n(x)=
+\begin{cases}
+    0, \qquad          & x < x_{(1)} \\
+    \frac{k}{n} \qquad & x_{(k)} \leq x < x_{(k+1)}, \ k \in \{1, 2, \dots, n-1\} \\
+    1, \qquad          & x \geq x_{(n)}
+\end{cases}
+$$
+
+且 $\mathrm{F}_n(x)$ 满足
+$$\begin{cases}
+    \mathrm{F}_n(-\infty) = 0 \\
+    \mathrm{F}_n(\infty) = 1
+\end{cases}$$
+
+由此可见 $\mathrm{F}_n(x)$ 是一个分布函数。称 $\mathrm{F}_n(x)$ 为样本 $\{x_1, x_2, \dots, x_n\}$ 的**经验分布函数**（`empirical distribution function`），也称样本分布函数。
+
+对每一个固定的 $x$，$\mathrm{F}_n(x)$ 是样本中事件 $\{x_i \leq x\}$ 发生的频率。当 $n$ 固定时，
+。$\mathrm{F}_n(x)$ 是样本的函数，它是一个随机变量。对任意给定的实数 $x$，定义函数：
+$$\mathrm{I}_i(x)=\begin{cases}
+    1, \qquad & x \geq x_i \\
+    0, \qquad & x < x_i
+\end{cases}
+$$
+
+可以将经验分布函数转化为：
+$$
+\mathrm{F}_n(x)=\frac{1}{n}\sum_{i=1}^n \mathrm{I}_i(x)
+$$
+
+由于 $\mathrm{I}_i(x)$ 是独立同分布的随机变量，其共同分布是 **0-1 分布** $\mathrm{I}_i(x) \sim b(1, \mathrm{F}(x))$。根据伯努利大数定律，只要 $n$ 相当大，$\mathrm{F}_n(x)$ 依概率收敛于 $\mathrm{F}(x)$。
+
+> **定理：格里纹科定理 Glivenko–Cantelli theorem**
+> 设 $\{x_1, x_2, \dots, x_n\}$ 是取自分布函数为 $\mathrm{F}(x)$ 的总体的样本，其经验分布函数是 $\mathrm{F}_n(x)$，当 $n \rightarrow \infty$ 时，有
+> $$
+> \mathrm{P}\left(
+> \sup_{-\infty <x <\infty} |\mathrm{F}_n(x) - \mathrm{F}(x)| \rightarrow 0
+> \right) = 1
+> $$
+
+由格里纹科定理可知，当 $n$ 相当大时，经验分布函数 $\mathrm{F}_n(x)$ 是总体分布函数 $\mathrm{F}(x)$ 的一个良好的近似。
+
+## 二、统计量及其分布 Statistics and it's distribution
+
+当需要从样本中获取对总体参数的认知时，常用的方法是构造样本的函数，不同的样本函数反映总体的不同特征。
+
+> 定义：统计量与抽样分布 Statistics and sampling distribution
+> 设 $\{x_1, x_2, \dots, x_n\}$ 是取自某总体的样本，若样本函数 $\mathrm{T}=\mathrm{T}(x_1, x_2, \dots, x_n)$，中不含有任何未知参数，则称 $\mathrm{T}$ 为**统计量**（Statistics）。统计量的分布称为抽样分布（Sampling distribution）。
+
+根据上述定义可知，对于样本 $\{x_1, x_2, \dots, x_n\}$，$\sum_{i=1}^n x_i$、$\sum_{i=1}^n x_i^2$、经验分布函数 $\mathrm{F}_n(x)$ 均为其统计量。同时，当 $\mu$，$\sigma^2$ 未知时，$x_1-\mu$、$\frac{x_1}{\sigma}$ 等都不是统计量。必须指出的是：**尽管统计量不依赖于未知参数，但是它的分布（抽样分布）一般还是依赖于未知参数的。**
+
+### 2.1 样本均值及其分布 Sample mean and it's distribution
+
+> **定义：样本均值 Sample mean**
+> 从总体中取出一个样本量为 $n$ 的样本 $\{x_1, x_2, \dots, x_n\}$，称其算术平均值为样本均值，一般表示为 $\bar{x}$，即
+> $$\bar{x}=\frac{1}{n}\sum_{i=1}^nx_i$$
+
+由上述定义可知，**样本均值是一个统计量**。在一些特殊情况下，从总体中抽出的可能是分组样本。分组样本表示为数值的分组情况而非具体的数值，在计算其样本均值时，需先根据样本的分组情况求出一个值来代表这个分组，再求出其算术平均值。这个代表分组情况的值一般为组中值。
+
+关于样本均值有一些定理：
+
+> **定理**：样本中所有样本点与样本均值的偏差之和为 0。
+> $$\sum_{i=1}^n (x_i-\bar{x})=0$$
+>
+> **定理**：数据观测值与均值的偏差平方和最小。
+> $$\bar{x} = \min_{c}\sum_{i=1}^n (x_i-c)^2$$
+>
+> **定理**：设 $\{x_1, x_2, \dots, x_n\}$ 是从总体中取出的样本，其样本均值为 $\bar{x}$。有：
+> - 若总体的分布有 $X \sim N(\mu,\sigma^2)$，则可以确定 $\bar{x}$ 的**精确分布**：$\bar{x} \sim N(\mu, \frac{\sigma^2}{n})$。
+> - 若总体的分布未知或不是正态分布，但 $\mathrm{E}(x)=\mu$ 和 $\mathrm{Var}(x)=\sigma^2$ 存在，当样本量 $n$ 较大时，$\bar{x}$ 的近似分布为 $N(\mu, \frac{\sigma^2}{n})$，称为 $\bar{x}$ 的**渐近分布**。
+
+### 2.2 样本的方差与标准差 Sample's variance and standard deviation
+
+> **定义**：样本方差与标准差 Sample variance and standard deviation
+> 设 $\{x_1, x_2, \dots, x_n\}$ 为取自某总体的样本，称样本中所有样本点与样本均值 $\bar{x}$ 的平均偏差平方和为**样本方差**。
+> $$s_n^2=\frac{1}{n}\sum_{i=1}^n(x_i-\bar{x})^2 \tag{1}$$
+>
+> 称 $s_n = \sqrt{s_n^2}$ 为**样本标准差**，其与样本均值有相同的度量单位。当样本量 $n$ 不大时，常用 $s^2$ 作为样本方差，也称之为**无偏方差**。同时也称 $s = \sqrt{s^2}$ 为样本标准差
+> $$s^2 = \frac{1}{n-1}\sum_{i=1}^n(x_i-\bar{x})^2$$
+
+由上述定义可知，样本方差与样本标准差是度量样本散布大小的统计量。**在实际情况中，$s^2$ 比 $s_n^2$ 更常用，样本方差一般指 $s^2$。**
+
+> 定理：设某总体 $X$ 具有二阶矩，即 $\mathrm{E}(X)=\mu$、$\mathrm{Var}(X)=\sigma^2<\infty$。从该总体中得到样本 $\{x_1, x_2, \dots, x_n\}$，$\bar{x}$ 和 $s^2$ 分别是样本均值和样本方差，则有：
+> $$\begin{cases}
+> \mathrm{E}(\bar{x})=\mu \\
+> \mathrm{Var}(\bar{x})=\frac{\sigma^2}{n} \\
+> \mathrm{E}(s^2)=\sigma^2 \\
+> \end{cases}$$
+
+## 三、主要抽样分布 Major sampling distribution
+
+### 3.1 $\chi$ 分布（卡方分布） Chi-squared distribution
+
+> **定义**：设 $\{X_1, X_2, \dots, X_n\}$ 独立同分布于标准正态分布 $N(0,1)$，则称统计量 $\chi^2$ 的分布为自由度为 $n$ 的 $\chi^2$ 分布，记为 $\chi^2 \sim \chi^2(n)$。
+> $$\chi^2=\sum_{i=1}^n X_i^2$$
+
+若随机变量 $X \sim N(0,1)$，则有 $X^2 \sim \Gamma(\frac{1}{2}, \frac{1}{2})$。根据伽玛分布的可加性，有 $\chi^2=\Gamma(\frac{n}{2}, \frac{1}{2})=\chi^(n)$。由此可见：$\chi^2(n)$ 分布是伽玛分布 $\Gamma(\alpha, \lambda)$ 的特例。
+
+
