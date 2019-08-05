@@ -16,6 +16,12 @@ class Register:
         
         self.string = ''
 
+    def sum(self):
+        with open('Register.txt', 'r') as fp:
+            current = fp.read()
+
+        return len(current)
+
 
 if __name__ == "__main__":
     pass
